@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BE42116F6600300686BF9 /* libCueConcurrency.a */; };
+		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
+		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
+		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
+		9085987317359ED1009F7E56 /* libCueTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987217359ED1009F7E56 /* libCueTest.a */; };
+		9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987417359ED8009F7E56 /* SenTestingKit.framework */; };
+		9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987617359EE0009F7E56 /* libc++.dylib */; };
+		9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987717359EE0009F7E56 /* libstdc++.dylib */; };
+		90C76B3D173599AA003E0958 /* CueFairLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2C173599AA003E0958 /* CueFairLock.m */; };
+		90C76B3E173599AA003E0958 /* CueReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2E173599AA003E0958 /* CueReadWriteLock.m */; };
+		90C76B3F173599AA003E0958 /* CueStackLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B30173599AA003E0958 /* CueStackLock.mm */; };
+		90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B35173599AA003E0958 /* CueThreadLocal.m */; };
+		90C76B42173599AA003E0958 /* CueConcurrentArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B38173599AA003E0958 /* CueConcurrentArray.mm */; };
+		90C76B43173599AA003E0958 /* CueConcurrentCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		900BE43816F6600300686BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 900BE41916F6600300686BF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 900BE42016F6600300686BF9;
+			remoteInfo = CueConcurrency;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		900BE41F16F6600300686BF9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		900BE42116F6600300686BF9 /* libCueConcurrency.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCueConcurrency.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		900BE43216F6600300686BF9 /* CueConcurrencyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CueConcurrencyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		900BE43D16F6600300686BF9 /* CueConcurrencyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CueConcurrencyTests-Info.plist"; sourceTree = "<group>"; };
+		9085986917359E3E009F7E56 /* CueFairLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueFairLockTest.h; path = CueConcurrencyTests/CueFairLockTest.h; sourceTree = SOURCE_ROOT; };
+		9085986A17359E3E009F7E56 /* CueFairLockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueFairLockTest.m; path = CueConcurrencyTests/CueFairLockTest.m; sourceTree = SOURCE_ROOT; };
+		9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueReadWriteLockTest.h; path = CueConcurrencyTests/CueReadWriteLockTest.h; sourceTree = SOURCE_ROOT; };
+		9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueReadWriteLockTest.m; path = CueConcurrencyTests/CueReadWriteLockTest.m; sourceTree = SOURCE_ROOT; };
+		9085986D17359E3E009F7E56 /* CueThreadLocalTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueThreadLocalTest.h; path = CueConcurrencyTests/CueThreadLocalTest.h; sourceTree = SOURCE_ROOT; };
+		9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueThreadLocalTest.m; path = CueConcurrencyTests/CueThreadLocalTest.m; sourceTree = SOURCE_ROOT; };
+		9085987217359ED1009F7E56 /* libCueTest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCueTest.a; path = "../CueTest/build/Debug-iphoneos/libCueTest.a"; sourceTree = "<group>"; };
+		9085987417359ED8009F7E56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9085987617359EE0009F7E56 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		9085987717359EE0009F7E56 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		9085D4391731C786005165D4 /* CueConcurrency-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CueConcurrency-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		90C76B2B173599AA003E0958 /* CueFairLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueFairLock.h; sourceTree = "<group>"; };
+		90C76B2C173599AA003E0958 /* CueFairLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueFairLock.m; sourceTree = "<group>"; };
+		90C76B2D173599AA003E0958 /* CueReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueReadWriteLock.h; sourceTree = "<group>"; };
+		90C76B2E173599AA003E0958 /* CueReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueReadWriteLock.m; sourceTree = "<group>"; };
+		90C76B2F173599AA003E0958 /* CueStackLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueStackLock.h; sourceTree = "<group>"; };
+		90C76B30173599AA003E0958 /* CueStackLock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueStackLock.mm; sourceTree = "<group>"; };
+		90C76B31173599AA003E0958 /* CueTestableLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueTestableLock.h; sourceTree = "<group>"; };
+		90C76B34173599AA003E0958 /* CueThreadLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadLocal.h; sourceTree = "<group>"; };
+		90C76B35173599AA003E0958 /* CueThreadLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadLocal.m; sourceTree = "<group>"; };
+		90C76B37173599AA003E0958 /* CueConcurrentArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentArray.h; sourceTree = "<group>"; };
+		90C76B38173599AA003E0958 /* CueConcurrentArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentArray.mm; sourceTree = "<group>"; };
+		90C76B39173599AA003E0958 /* CueConcurrentCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollections.h; sourceTree = "<group>"; };
+		90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueConcurrentCollections.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		900BE41E16F6600300686BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		900BE42E16F6600300686BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */,
+				9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */,
+				9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */,
+				9085987317359ED1009F7E56 /* libCueTest.a in Frameworks */,
+				900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		900BE41816F6600300686BF9 = {
+			isa = PBXGroup;
+			children = (
+				900BE42616F6600300686BF9 /* Classes */,
+				900BE43B16F6600300686BF9 /* CueConcurrencyTests */,
+				900BE42316F6600300686BF9 /* Frameworks */,
+				900BE42216F6600300686BF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		900BE42216F6600300686BF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				900BE42116F6600300686BF9 /* libCueConcurrency.a */,
+				900BE43216F6600300686BF9 /* CueConcurrencyTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		900BE42316F6600300686BF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9085987617359EE0009F7E56 /* libc++.dylib */,
+				9085987717359EE0009F7E56 /* libstdc++.dylib */,
+				9085987417359ED8009F7E56 /* SenTestingKit.framework */,
+				9085987217359ED1009F7E56 /* libCueTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		900BE42616F6600300686BF9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				90C76B36173599AA003E0958 /* Collections */,
+				90C76B2B173599AA003E0958 /* CueFairLock.h */,
+				90C76B2C173599AA003E0958 /* CueFairLock.m */,
+				90C76B2D173599AA003E0958 /* CueReadWriteLock.h */,
+				90C76B2E173599AA003E0958 /* CueReadWriteLock.m */,
+				90C76B2F173599AA003E0958 /* CueStackLock.h */,
+				90C76B30173599AA003E0958 /* CueStackLock.mm */,
+				90C76B31173599AA003E0958 /* CueTestableLock.h */,
+				90C76B34173599AA003E0958 /* CueThreadLocal.h */,
+				90C76B35173599AA003E0958 /* CueThreadLocal.m */,
+				900BE42716F6600300686BF9 /* Supporting Files */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		900BE42716F6600300686BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9085D4391731C786005165D4 /* CueConcurrency-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		900BE43B16F6600300686BF9 /* CueConcurrencyTests */ = {
+			isa = PBXGroup;
+			children = (
+				9096137A16F6A07100C0FDEC /* Dependencies */,
+				9096112516F69E8C00C0FDEC /* Tests */,
+				900BE43C16F6600300686BF9 /* Supporting Files */,
+			);
+			path = CueConcurrencyTests;
+			sourceTree = "<group>";
+		};
+		900BE43C16F6600300686BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				900BE43D16F6600300686BF9 /* CueConcurrencyTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9096112516F69E8C00C0FDEC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9085986917359E3E009F7E56 /* CueFairLockTest.h */,
+				9085986A17359E3E009F7E56 /* CueFairLockTest.m */,
+				9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */,
+				9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */,
+				9085986D17359E3E009F7E56 /* CueThreadLocalTest.h */,
+				9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9096137A16F6A07100C0FDEC /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		90C76B36173599AA003E0958 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				90C76B37173599AA003E0958 /* CueConcurrentArray.h */,
+				90C76B38173599AA003E0958 /* CueConcurrentArray.mm */,
+				90C76B39173599AA003E0958 /* CueConcurrentCollections.h */,
+				90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		900BE42016F6600300686BF9 /* CueConcurrency */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900BE44616F6600300686BF9 /* Build configuration list for PBXNativeTarget "CueConcurrency" */;
+			buildPhases = (
+				900BE41D16F6600300686BF9 /* Sources */,
+				900BE41E16F6600300686BF9 /* Frameworks */,
+				900BE41F16F6600300686BF9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CueConcurrency;
+			productName = CueConcurrency;
+			productReference = 900BE42116F6600300686BF9 /* libCueConcurrency.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		900BE43116F6600300686BF9 /* CueConcurrencyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900BE44916F6600300686BF9 /* Build configuration list for PBXNativeTarget "CueConcurrencyTests" */;
+			buildPhases = (
+				900BE42D16F6600300686BF9 /* Sources */,
+				900BE42E16F6600300686BF9 /* Frameworks */,
+				900BE42F16F6600300686BF9 /* Resources */,
+				900BE43016F6600300686BF9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				900BE43916F6600300686BF9 /* PBXTargetDependency */,
+			);
+			name = CueConcurrencyTests;
+			productName = CueConcurrencyTests;
+			productReference = 900BE43216F6600300686BF9 /* CueConcurrencyTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		900BE41916F6600300686BF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Cue;
+			};
+			buildConfigurationList = 900BE41C16F6600300686BF9 /* Build configuration list for PBXProject "CueConcurrency" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 900BE41816F6600300686BF9;
+			productRefGroup = 900BE42216F6600300686BF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				900BE42016F6600300686BF9 /* CueConcurrency */,
+				900BE43116F6600300686BF9 /* CueConcurrencyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		900BE42F16F6600300686BF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		900BE43016F6600300686BF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		900BE41D16F6600300686BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90C76B3D173599AA003E0958 /* CueFairLock.m in Sources */,
+				90C76B3E173599AA003E0958 /* CueReadWriteLock.m in Sources */,
+				90C76B3F173599AA003E0958 /* CueStackLock.mm in Sources */,
+				90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */,
+				90C76B42173599AA003E0958 /* CueConcurrentArray.mm in Sources */,
+				90C76B43173599AA003E0958 /* CueConcurrentCollections.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		900BE42D16F6600300686BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */,
+				9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */,
+				9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		900BE43916F6600300686BF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 900BE42016F6600300686BF9 /* CueConcurrency */;
+			targetProxy = 900BE43816F6600300686BF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9003945C16FF9BBF00B4461E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		9003945D16FF9BBF00B4461E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CueConcurrency.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CueConcurrency-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9003945E16FF9BBF00B4461E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CueConcurrency-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"UNIT_TESTS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../CueCore/**",
+					"$(SRCROOT)/../../fmdb/src",
+					"$(SRCROOT)/../../RegexKitLite",
+					"$(SRCROOT)/../../CocoaHTTPServer/**",
+					"$(SRCROOT)/../CueTest/**",
+				);
+				INFOPLIST_FILE = "CueConcurrencyTests/CueConcurrencyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		900BE44416F6600300686BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		900BE44716F6600300686BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CueConcurrency.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CueConcurrency-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		900BE44A16F6600300686BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CueConcurrency-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"UNIT_TESTS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../CueCore/**",
+					"$(SRCROOT)/../../fmdb/src",
+					"$(SRCROOT)/../../RegexKitLite",
+					"$(SRCROOT)/../../CocoaHTTPServer/**",
+					"$(SRCROOT)/../CueTest/**",
+				);
+				INFOPLIST_FILE = "CueConcurrencyTests/CueConcurrencyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		900BE41C16F6600300686BF9 /* Build configuration list for PBXProject "CueConcurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900BE44416F6600300686BF9 /* Debug */,
+				9003945C16FF9BBF00B4461E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		900BE44616F6600300686BF9 /* Build configuration list for PBXNativeTarget "CueConcurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900BE44716F6600300686BF9 /* Debug */,
+				9003945D16FF9BBF00B4461E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		900BE44916F6600300686BF9 /* Build configuration list for PBXNativeTarget "CueConcurrencyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900BE44A16F6600300686BF9 /* Debug */,
+				9003945E16FF9BBF00B4461E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 900BE41916F6600300686BF9 /* Project object */;
+}
