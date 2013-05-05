@@ -42,9 +42,9 @@ BACKGROUND(^{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Locks
-For more complex locking schemes, CueConcurrency provides a simple fair lock implementation, as well as a readwrite lock.
+For more complex locking schemes, CueConcurrency provides __CueFairLock__, as well as a __CueReadWriteLock__.
 
-Also provided is a C++ stack-based locking system, which guarantees unlocking when execution leaves the current scope.
+Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
 This helps minimize forgotten unlocks and guarantees correct exception cleanup.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 - (BOOL)safeLockedQuery {
