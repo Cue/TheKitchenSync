@@ -11,10 +11,12 @@
 		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
-		9085987317359ED1009F7E56 /* libCueTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987217359ED1009F7E56 /* libCueTest.a */; };
 		9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987417359ED8009F7E56 /* SenTestingKit.framework */; };
 		9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987617359EE0009F7E56 /* libc++.dylib */; };
 		9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987717359EE0009F7E56 /* libstdc++.dylib */; };
+		908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598CF1735B838009F7E56 /* CCCustomDealloc.m */; };
+		908598D51735B838009F7E56 /* CCThreadSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D11735B838009F7E56 /* CCThreadSteps.m */; };
+		908598D61735B838009F7E56 /* CueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D31735B838009F7E56 /* CueTest.m */; };
 		90C76B3D173599AA003E0958 /* CueFairLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2C173599AA003E0958 /* CueFairLock.m */; };
 		90C76B3E173599AA003E0958 /* CueReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2E173599AA003E0958 /* CueReadWriteLock.m */; };
 		90C76B3F173599AA003E0958 /* CueStackLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B30173599AA003E0958 /* CueStackLock.mm */; };
@@ -59,6 +61,12 @@
 		9085987417359ED8009F7E56 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9085987617359EE0009F7E56 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		9085987717359EE0009F7E56 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		908598CE1735B838009F7E56 /* CCCustomDealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCCustomDealloc.h; path = Cue/CueTest/CCCustomDealloc.h; sourceTree = SOURCE_ROOT; };
+		908598CF1735B838009F7E56 /* CCCustomDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCCustomDealloc.m; path = Cue/CueTest/CCCustomDealloc.m; sourceTree = SOURCE_ROOT; };
+		908598D01735B838009F7E56 /* CCThreadSteps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCThreadSteps.h; path = Cue/CueTest/CCThreadSteps.h; sourceTree = SOURCE_ROOT; };
+		908598D11735B838009F7E56 /* CCThreadSteps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCThreadSteps.m; path = Cue/CueTest/CCThreadSteps.m; sourceTree = SOURCE_ROOT; };
+		908598D21735B838009F7E56 /* CueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueTest.h; path = Cue/CueTest/CueTest.h; sourceTree = SOURCE_ROOT; };
+		908598D31735B838009F7E56 /* CueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueTest.m; path = Cue/CueTest/CueTest.m; sourceTree = SOURCE_ROOT; };
 		9085D4391731C786005165D4 /* CueConcurrency-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CueConcurrency-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		90C76B2B173599AA003E0958 /* CueFairLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueFairLock.h; sourceTree = "<group>"; };
 		90C76B2C173599AA003E0958 /* CueFairLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueFairLock.m; sourceTree = "<group>"; };
@@ -90,7 +98,6 @@
 				9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */,
 				9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */,
 				9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */,
-				9085987317359ED1009F7E56 /* libCueTest.a in Frameworks */,
 				900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +195,12 @@
 		9096137A16F6A07100C0FDEC /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				908598CE1735B838009F7E56 /* CCCustomDealloc.h */,
+				908598CF1735B838009F7E56 /* CCCustomDealloc.m */,
+				908598D01735B838009F7E56 /* CCThreadSteps.h */,
+				908598D11735B838009F7E56 /* CCThreadSteps.m */,
+				908598D21735B838009F7E56 /* CueTest.h */,
+				908598D31735B838009F7E56 /* CueTest.m */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -317,6 +330,9 @@
 				9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */,
 				9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */,
 				9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */,
+				908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */,
+				908598D51735B838009F7E56 /* CCThreadSteps.m in Sources */,
+				908598D61735B838009F7E56 /* CueTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,13 +386,7 @@
 					"$(inherited)",
 					"UNIT_TESTS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../CueCore/**",
-					"$(SRCROOT)/../../fmdb/src",
-					"$(SRCROOT)/../../RegexKitLite",
-					"$(SRCROOT)/../../CocoaHTTPServer/**",
-					"$(SRCROOT)/../CueTest/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Cue/**";
 				INFOPLIST_FILE = "CueConcurrencyTests/CueConcurrencyTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -426,13 +436,7 @@
 					"$(inherited)",
 					"UNIT_TESTS=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../CueCore/**",
-					"$(SRCROOT)/../../fmdb/src",
-					"$(SRCROOT)/../../RegexKitLite",
-					"$(SRCROOT)/../../CocoaHTTPServer/**",
-					"$(SRCROOT)/../CueTest/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Cue/**";
 				INFOPLIST_FILE = "CueConcurrencyTests/CueConcurrencyTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

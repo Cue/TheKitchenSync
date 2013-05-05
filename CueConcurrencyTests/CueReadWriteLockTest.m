@@ -9,7 +9,6 @@
 #import "CueReadWriteLockTest.h"
 #import "CueReadWriteLock.h"
 #import "CCThreadSteps.h"
-#import "NSString+CueCore.h"
 
 // a = acquiring
 // h = held
@@ -17,7 +16,7 @@
 
 #define A(...) [NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
 
-#define STEP(s) FORMAT(@"%@%@", [[NSThread currentThread] name], s)
+#define STEP(s) [NSString stringWithFormat:@"%@%@", [[NSThread currentThread] name], s]
 
 #define READ_LOCK(num) [_test runOnThread:num block:^{ \
     [_result addObject:STEP(@"a")]; \
