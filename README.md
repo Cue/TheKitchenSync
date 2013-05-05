@@ -46,7 +46,13 @@ For more complex locking schemes, CueConcurrency provides __CueFairLock__, as we
 
 Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
 This helps minimize forgotten unlocks and guarantees correct exception cleanup.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
+#import "CueStackLock.h"
+/*
+ * Make sure you compile as Objective C++ when using CueStackLock. 
+ * Generally this means changing your file extension from .m to .mm
+ * /
 - (BOOL)safeLockedQuery {
   CueStackLock(_lock);
   if ([self needsToBreak]) {
