@@ -15,15 +15,18 @@
 @interface CueConcurrentArray : NSObject
 <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 
+
 #pragma mark - Static Factory
 
 + (instancetype)from:(NSArray *)array;
+
 
 #pragma mark - Init
 
 - (id)init;
 
 - (id)initWithArray:(NSArray *)array;
+
 
 #pragma mark - Query
 
@@ -37,6 +40,7 @@
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
+
 #pragma mark - Add
 
 - (void)addObject:(id)object;
@@ -45,7 +49,10 @@
 
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 
+- (void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index;
+
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
+
 
 #pragma mark - Remove
 
@@ -56,6 +63,7 @@
 - (void)removeLastObject;
 
 - (void)removeAllObjects;
+
 
 #pragma mark - Unsafe
 

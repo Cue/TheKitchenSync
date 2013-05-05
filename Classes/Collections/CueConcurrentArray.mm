@@ -7,13 +7,14 @@
 //
 
 #import "CueConcurrentArray.h"
+#import "CueConcurrentCollectionsPriv.h"
 #import "CueReadWriteLock.h"
-#import "CueStackLock.h"
 
 @implementation CueConcurrentArray {
     NSMutableArray *_array;
     CueReadWriteLock *_lock;
 }
+
 
 #pragma mark - Static Factory
 
@@ -40,9 +41,6 @@
     return self;
 }
 
-
-#define READ CueStackLock(_lock);
-#define WRITE CueStackLockWrite(_lock);
 
 #pragma mark - Query
 
@@ -95,6 +93,12 @@
 {
     WRITE
     [_array insertObject:anObject atIndex:index];
+}
+
+- (void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index;
+{
+    WRITE
+    [_array setObject:anObject atIndexedSubscript:index];
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
@@ -158,8 +162,7 @@
 
 - (id)copyWithZone:(NSZone *)zone;
 {
-    READ
-    return [_array copyWithZone:zone];
+    return [self mutableCopyWithZone:zone];
 }
 
 - (id)mutableCopyWithZone:(NSZone *)zone;

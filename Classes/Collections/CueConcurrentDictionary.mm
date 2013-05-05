@@ -1,0 +1,193 @@
+//
+//  CueConcurrentDictionary.m
+//  CueConcurrency
+//
+//  Created by Aaron Sarazan on 5/4/13.
+//  Copyright (c) 2013 Cue. All rights reserved.
+//
+
+#import "CueConcurrentDictionary.h"
+#import "CueConcurrentCollectionsPriv.h"
+#import "CueReadWriteLock.h"
+
+@implementation CueConcurrentDictionary {
+    NSMutableDictionary *_dict;
+    CueReadWriteLock *_lock;
+}
+
+
+#pragma mark - Static Factory
+
++ (instancetype)from:(NSDictionary *)dictionary;
+{
+    return [[[self alloc] initWithDictionary:dictionary] autorelease];
+}
+
+
+#pragma mark - Init
+
+- (id)init;
+{
+    return [self initWithDictionary:@{}];
+}
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+{
+    self = [super init];
+    if (self) {
+        _lock = [[CueReadWriteLock alloc] init];
+        _dict = [dictionary mutableCopy];
+    }
+    return self;
+}
+
+
+#pragma mark - Query
+
+- (NSUInteger)count;
+{
+    READ
+    return _dict.count;
+}
+
+- (NSArray *)allKeys;
+{
+    READ
+    return _dict.allKeys;
+}
+
+- (NSArray *)allValues;
+{
+    READ
+    return _dict.allValues;
+}
+
+- (id)objectForKey:(id)aKey;
+{
+    READ
+    return [_dict objectForKey:aKey];
+}
+
+- (id)objectForKeyedSubscript:(id)key;
+{
+    READ
+    return [_dict objectForKeyedSubscript:key];
+}
+
+
+#pragma mark - Add
+
+- (void)setObject:(id)anObject forKey:(id<NSCopying>)aKey;
+{
+    WRITE
+    [_dict setObject:anObject forKey:aKey];
+}
+
+- (void)setObject:(id)object forKeyedSubscript:(id<NSCopying>)aKey;
+{
+    WRITE
+    [_dict setObject:object forKeyedSubscript:aKey];
+}
+
+- (void)addEntriesFromDictionary:(NSDictionary *)otherDictionary;
+{
+    WRITE
+    [_dict addEntriesFromDictionary:otherDictionary];
+}
+
+
+#pragma mark - Remove
+
+- (void)removeObjectForKey:(id)aKey;
+{
+    WRITE
+    [_dict removeObjectForKey:aKey];
+}
+
+- (void)removeAllObjects;
+{
+    WRITE
+    [_dict removeAllObjects];
+}
+
+
+#pragma mark - Unsafe
+
+- (NSMutableDictionary *)unsafeDictionary;
+{
+    return _dict;
+}
+
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder;
+{
+    id dict = [aDecoder decodeObjectForKey:@"dict"];
+    return [self initWithDictionary:dict];
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+{
+    READ
+    [aCoder encodeObject:_dict forKey:@"dict"];
+}
+
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone;
+{
+    return [self mutableCopyWithZone:zone];
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone;
+{
+    id retval = [self.class allocWithZone:zone];
+    READ
+    return [retval initWithDictionary:_dict];
+}
+
+- (BOOL)isEqual:(id)object;
+{
+    if (object == self) {
+        return YES;
+    }
+    READ
+    if ([object isKindOfClass:[CueConcurrentDictionary class]]) {
+        CueConcurrentDictionary *other = object;
+        id lock = other->_lock;
+        CueStackLock(lock);
+        return [_dict isEqual:other->_dict];
+    }
+    return NO;
+}
+
+// We don't want it to hash the same as an NSArray
+// because we can't reliably do the right thing
+// with isEqual, so we offset by one.
+- (NSUInteger)hash;
+{
+    READ
+    return _dict.hash + 1;
+}
+
+#pragma mark - NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id *)stackbuf
+                                    count:(NSUInteger)len;
+{
+    READ
+    NSDictionary *safeCopy = [[_dict copy] autorelease];
+    return [safeCopy countByEnumeratingWithState:state objects:stackbuf count:len];
+}
+
+- (void)dealloc;
+{
+    [_lock release];
+    [_dict release];
+    [super dealloc];
+}
+
+@end

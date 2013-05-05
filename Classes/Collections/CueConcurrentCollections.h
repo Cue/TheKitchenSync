@@ -7,7 +7,12 @@
 //
 
 #import "CueConcurrentArray.h"
+#import "CueConcurrentDictionary.h"
 
 @interface NSArray (CueConcurrentCollections)
 - (CueConcurrentArray *)cueConcurrent;
+@end
+
+@interface NSDictionary (CueConcurrentCollections)
+- (CueConcurrentDictionary *)cueConcurrent;
 @end

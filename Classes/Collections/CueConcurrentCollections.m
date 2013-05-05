@@ -16,3 +16,12 @@
 }
 
 @end
+
+@implementation NSDictionary (CueConcurrentCollections)
+
+- (CueConcurrentDictionary *)cueConcurrent;
+{
+    return [CueConcurrentDictionary from:self];
+}
+
+@end
