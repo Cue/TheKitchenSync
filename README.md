@@ -25,8 +25,9 @@ Once you've done that,  you'll need to add CueConcurrency/Classes to your header
 ### Pick and choose
 If you only need a single class, just grab it! Make sure to get any of that file's #includes as well!
 
+## How to Use
 
-## Collections
+### Collections
 Cue's thread-safe array and dictionary classes support all of the basic operations of arrays and dictionaries, 
 as well as the new subscript operators:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
@@ -40,7 +41,7 @@ BACKGROUND(^{
 });
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## Locks
+### Locks
 For more complex locking schemes, CueConcurrency provides a simple fair lock implementation, as well as a readwrite lock.
 
 Also provided is a C++ stack-based locking system, which guarantees unlocking when execution leaves the current scope.
