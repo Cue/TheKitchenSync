@@ -169,6 +169,29 @@
     return [retval initWithArray:_array];
 }
 
+- (BOOL)isEqual:(id)object;
+{
+    if (object == self) {
+        return YES;
+    }    
+    READ
+    if ([object isKindOfClass:[CueConcurrentArray class]]) {
+        CueConcurrentArray *other = object;
+        id lock = other->_lock;
+        CueStackLock(lock);
+        return [_array isEqual:other->_array];
+    }    
+    return NO;
+}
+
+// We don't want it to hash the same as an NSArray
+// because we can't reliably do the right thing
+// with isEqual, so we offset by one.
+- (NSUInteger)hash;
+{
+    READ
+    return _array.hash + 1;
+}
 
 #pragma mark - NSFastEnumeration
 
