@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * A concurrent array object composed of
+ * A thread-safe array object composed of
  * an NSMutableArray and a CueReadWriteLock.
  */
 @interface CueConcurrentArray : NSObject

@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * A concurrent dictionary object composed of
+ * A thread-safe dictionary object composed of
  * an NSMutableDictionary and a CueReadWriteLock.
  */
 @interface CueConcurrentDictionary : NSObject

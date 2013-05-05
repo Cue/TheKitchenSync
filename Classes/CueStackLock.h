@@ -16,20 +16,11 @@
 
 #pragma once
 
-#ifdef __cplusplus
-class CueStackLockObject {
 
-private:
-    id m_lock;
-    bool m_preventRelocking;
-    bool m_needsUnlock;
-
-public:
-    CueStackLockObject(id lock, bool preventRelocking = false, bool lockForWriting = false, bool acceptNil = false);
-    ~CueStackLockObject();
-};
-
-
+/**
+ * Convenience macros. Pass an <NSLocking> object to one of these macros
+ * to lock it for the remainder of the present scope level.
+ */
 #define CueStackLock(__lockable__) \
 CueStackLockObject __stackLock_##__lockable__(__lockable__)
 
@@ -41,5 +32,30 @@ CueStackLockObject __stackLock_##__lockable__(__lockable__, false, true)
 
 #define CueStackLockNoRelock(__lockable__) \
 CueStackLockObject __stackLock_##__lockable__(__lockable__, true)
+
+
+#ifdef __cplusplus
+
+/**
+ * This object, when instantiated with an <NSLocking> object,
+ * will stay locked for the duration of its lifespan.
+ *
+ * It is intended to be stack allocated, so as to provide worry-free
+ * local locking via the RAII pattern.
+ *
+ * It is recommended to use the convenience macros at the top
+ * of this file, rather than instantiate CueStackLockObject directly.
+ */
+class CueStackLockObject {
+
+private:
+    id m_lock;
+    bool m_preventRelocking;
+    bool m_needsUnlock;
+
+public:
+    CueStackLockObject(id lock, bool preventRelocking = false, bool lockForWriting = false, bool acceptNil = false);
+    ~CueStackLockObject();
+};
 
 #endif

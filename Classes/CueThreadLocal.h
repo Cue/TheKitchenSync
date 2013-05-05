@@ -18,6 +18,9 @@
 
 /**
  * Convenience interface for objc thread-local storage.
+ *
+ * A CueThreadLocal object will generate a unique key at init-time,
+ * which will be used in subsequent gets and sets into the thread dictionary.
  */
 @interface CueThreadLocal : NSObject
 
