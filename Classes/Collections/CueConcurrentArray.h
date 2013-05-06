@@ -21,7 +21,7 @@
  * an NSMutableArray and a CueReadWriteLock.
  */
 @interface CueConcurrentArray : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
+<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
 
 
 #pragma mark - Static Factory
@@ -71,6 +71,24 @@
 - (void)removeLastObject;
 
 - (void)removeAllObjects;
+
+
+#pragma mark - Filter and Sort
+
+- (CueConcurrentArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+
+- (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+
+- (CueConcurrentArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
+
+- (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
+
+
+#pragma mark - Locking
+
+- (void)lockForRead;
+
+- (void)lockForWrite;
 
 
 #pragma mark - Unsafe

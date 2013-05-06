@@ -73,13 +73,13 @@
 - (id)objectAtIndex:(NSUInteger)index;
 {
     READ
-    return [_array objectAtIndex:index];
+    return [[[_array objectAtIndex:index] retain] autorelease];
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 {
     READ
-    return [_array objectAtIndexedSubscript:idx];
+    return [[[_array objectAtIndexedSubscript:idx] retain] autorelease];
 }
 
 
@@ -140,6 +140,56 @@
 {
     WRITE
     [_array removeAllObjects];    
+}
+
+
+#pragma mark - Filter and Sort
+
+- (CueConcurrentArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+{
+    READ
+    return [[_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent];
+}
+
+- (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+{
+    WRITE
+    [_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]];
+}
+
+- (CueConcurrentArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
+{
+    READ
+    return [[_array sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent];
+}
+
+- (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
+{
+    WRITE
+    [_array sortUsingDescriptors:sortDescriptors];
+}
+
+
+#pragma mark - Locking
+
+- (void)lock;
+{
+    [self lockForRead];
+}
+
+- (void)lockForRead;
+{
+    [_lock lockForRead];
+}
+
+- (void)lockForWrite;
+{
+    [_lock lockForWrite];
+}
+
+- (void)unlock;
+{
+    [_lock unlock];
 }
 
 

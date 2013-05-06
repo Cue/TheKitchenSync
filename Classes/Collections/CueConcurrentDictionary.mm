@@ -73,13 +73,13 @@
 - (id)objectForKey:(id)aKey;
 {
     READ
-    return [_dict objectForKey:aKey];
+    return [[[_dict objectForKey:aKey] retain] autorelease];
 }
 
 - (id)objectForKeyedSubscript:(id)key;
 {
     READ
-    return [_dict objectForKeyedSubscript:key];
+    return [[[_dict objectForKeyedSubscript:key] retain] autorelease];
 }
 
 
@@ -116,6 +116,29 @@
 {
     WRITE
     [_dict removeAllObjects];
+}
+
+
+#pragma mark - Locking
+
+- (void)lock;
+{
+    [self lockForRead];
+}
+
+- (void)lockForRead;
+{
+    [_lock lockForRead];
+}
+
+- (void)lockForWrite;
+{
+    [_lock lockForWrite];
+}
+
+- (void)unlock;
+{
+    [_lock unlock];
 }
 
 

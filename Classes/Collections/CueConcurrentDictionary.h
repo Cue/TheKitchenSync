@@ -21,7 +21,7 @@
  * an NSMutableDictionary and a CueReadWriteLock.
  */
 @interface CueConcurrentDictionary : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
+<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
 
 
 #pragma mark - Static Factory
@@ -63,6 +63,13 @@
 - (void)removeObjectForKey:(id)aKey;
 
 - (void)removeAllObjects;
+
+
+#pragma mark - Locking
+
+- (void)lockForRead;
+
+- (void)lockForWrite;
 
 
 #pragma mark - Unsafe

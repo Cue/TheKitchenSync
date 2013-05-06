@@ -15,6 +15,7 @@
  */
 
 #import "CueStackLock.h"
+#import "CueConcurrentCollections.h"
 
 #ifndef CueConcurrency_CueConcurrentCollectionsPriv_h
 #define CueConcurrency_CueConcurrentCollectionsPriv_h
