@@ -194,7 +194,7 @@
     return NO;
 }
 
-// We don't want it to hash the same as an NSArray
+// We don't want it to hash the same as an NSDictionary
 // because we can't reliably do the right thing
 // with isEqual, so we offset by one.
 - (NSUInteger)hash;
