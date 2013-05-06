@@ -14,17 +14,6 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "CueFairLock.h"
-#import "CueThreadLocal.h"
+#import "CueTest.h"
 
-/**
- * Cue Read/Write Lock.
- */
-@interface CueReadWriteLock : NSObject <NSLocking, CueTestableLock>
-
-- (void)lockForWrite;
-
-- (void)lockForRead; // Synonym for - (void)lock;
-
-@end
+TEST_CLASS(CueConcurrentCollectionsTest)
