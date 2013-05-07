@@ -1,0 +1,13 @@
+default: deps
+targets:
+  deps:
+    type: base.DepsOnly
+    deps: []
+    args:
+      test:
+      - :CueConcurrency
+    precommit: true
+  CueConcurrency:
+    type: xcode.IOS
+    args:
+      suite: CueConcurrencyTests
