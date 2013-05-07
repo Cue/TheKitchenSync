@@ -27,6 +27,7 @@
 		908E903817398B90005B5483 /* CueStackLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 908E902F17398B90005B5483 /* CueStackLock.mm */; };
 		908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */; };
 		908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */; };
+		90C1DB0917398C6E00521E5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C1DB0817398C6E00521E5E /* UIKit.framework */; };
 		90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B35173599AA003E0958 /* CueThreadLocal.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueConcurrentCollectionsTest.m; path = CueConcurrencyTests/CueConcurrentCollectionsTest.m; sourceTree = SOURCE_ROOT; };
 		908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueLoadingCacheTest.h; path = CueConcurrencyTests/CueLoadingCacheTest.h; sourceTree = SOURCE_ROOT; };
 		908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueLoadingCacheTest.m; path = CueConcurrencyTests/CueLoadingCacheTest.m; sourceTree = SOURCE_ROOT; };
+		90C1DB0817398C6E00521E5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90C76B34173599AA003E0958 /* CueThreadLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadLocal.h; sourceTree = "<group>"; };
 		90C76B35173599AA003E0958 /* CueThreadLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadLocal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,10 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */,
+				90C1DB0917398C6E00521E5E /* UIKit.framework in Frameworks */,
 				9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */,
 				9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */,
 				9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */,
-				900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +146,7 @@
 		900BE42316F6600300686BF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90C1DB0817398C6E00521E5E /* UIKit.framework */,
 				9085987617359EE0009F7E56 /* libc++.dylib */,
 				9085987717359EE0009F7E56 /* libstdc++.dylib */,
 				9085987417359ED8009F7E56 /* SenTestingKit.framework */,
@@ -398,6 +402,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -448,6 +453,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
