@@ -66,6 +66,14 @@ For each the target you want to use CueConcurrency with
 
 * Add `libCueConcurrency.a`
 
+* Add `libc++.dylib`
+
 ![Link libraries](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/LinkLibraries.png?raw=true)
+
+* Then in your source code type:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
+#import "CueConcurrency.h"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You're now ready to start using CueConcurrency!
