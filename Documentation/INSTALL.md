@@ -44,11 +44,11 @@ and then submit your pull request from your forked repo.
 
 Open Finder, navigate to `hookshot.xcodeproj`, and drag it in to your project:
 
-![Drag hookshot in to your project](https://raw.github.com/Cue/hookshot/master/Documentation/Images/DragSubproject.png)
+![Drag CueConcurrency in to your project](https://raw.github.com/Cue/CueConcurrency/master/Documentation/Images/DragToProject.png)
 
 should result in something like this:
 
-![After adding hookshot](https://raw.github.com/Cue/hookshot/master/Documentation/Images/AfterDragSubproject.png)
+![After adding CueConcurrency](https://raw.github.com/Cue/CueConcurrency/master/Documentation/Images/ShowInProject.png)
 
 Select the subproject, then choose `Build Settings`.  Search for `c++`
 
@@ -56,19 +56,13 @@ Select the subproject, then choose `Build Settings`.  Search for `c++`
 
 * Ensure `C++ Standard Library` is `libc++`
 
-![C++ settings](https://raw.github.com/Cue/hookshot/master/Documentation/Images/CPlusPlusSettings.png)
-
 Search for `header`
 
-* Add relative or full path to `hookshot/Classes` to `Header Search Paths`
+* Add relative or full path to `CueConcurrency/Classes` to `Header Search Paths`
 
 ![Header search paths](https://raw.github.com/Cue/hookshot/master/Documentation/Images/HeaderSearchPaths.png)
 
-Search for `preprocessor`
-
-* Add `HOOKSHOT_ENABLED=1` to `Preprocessor Macros` for your `Debug` target(s)
-
-Select your root project.  For each the target you want to use hookshot with
+Select your root project.  For each the target you want to use CueConcurrency with
 
 * Select `Build Phases`
 
@@ -76,13 +70,10 @@ Select your root project.  For each the target you want to use hookshot with
 
 ![Before linking libraries](https://raw.github.com/Cue/hookshot/master/Documentation/Images/BeforeLinkLibraries.png)
 
-* Add `libhookshot.a`
+* Add `libCueConcurrency.a`
 
 * Add `libc++.dylib`
 
 ![Link libraries](https://raw.github.com/Cue/hookshot/master/Documentation/Images/LinkLibraries.png)
 
-You're now ready to start using hookshot!
-
-### Pick and choose
-If you only need a single class, just grab it! Make sure to get any of that file's #includes as well!
+You're now ready to start using CueConcurrency!
