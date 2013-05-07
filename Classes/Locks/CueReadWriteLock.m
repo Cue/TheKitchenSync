@@ -27,7 +27,6 @@
 {
     if ((self = [super init])) {
         _fairLock = [[CueFairLock alloc] init];
-
         _primaryReader = nil;
         _activeReaders = [[NSMutableSet set] retain];
         _readLocks = [[CueThreadLocal alloc] init];
