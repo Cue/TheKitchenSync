@@ -6,9 +6,7 @@ Cue's concurrency library provides you with a basic set of advanced locks and co
 ## Installation
 You can get CueConcurrency in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md)
 
-## How to Use
-
-### Collections
+## Collections
 Cue's thread-safe array and dictionary classes support all of the basic operations of arrays and dictionaries, 
 as well as the new subscript operators:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
@@ -22,7 +20,7 @@ BACKGROUND(^{
 });
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-### Locks
+## Locks
 For more complex locking schemes, CueConcurrency provides __CueFairLock__, as well as a __CueReadWriteLock__.
 
 Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
@@ -30,10 +28,7 @@ This helps minimize forgotten unlocks and guarantees correct exception cleanup.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 #import "CueStackLock.h"
-/*
- * Make sure you compile as Objective C++ when using CueStackLock. 
- * Generally this means changing your file extension from .m to .mm
- * /
+/***/
 - (BOOL)safeLockedQuery {
   CueStackLock(_lock);
   if ([self needsToBreak]) {
@@ -41,6 +36,29 @@ This helps minimize forgotten unlocks and guarantees correct exception cleanup.
   }
   return [self potentialThrowQuery];  
 }
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Make sure you compile as Objective C++ when using CueStackLock. 
+Generally this means changing your file extension from .m to .mm
+
+## CueLoadingCache
+Similar to [Guava MapMaker](http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/com/google/common/collect/MapMaker.html), 
+the CueLoadingCache is a thread-safe container that allows programmatic generation of values by key. Simply pass a loader block to it, and it will apply that block to every key it is passed:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
+#import "CueLoadingCache.h"
+/*...*/   
+
+// This cache object takes a filename as its key, and returns its NSData from disk.
+CueLoadingCache *fileLoader = [[CueLoadingCache alloc] initWithLoader:^id(id key) {
+  NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString * docPath = [paths[0] stringByAppendingFormat:@"/%@",path];
+  return [NSData dataWithContentsOfFile:docPath];
+} isMemorySensitive:YES];
+
+// Loads from disk the first time...
+NSData *valueFirstTime = fileLoader[@"TextFile1.txt"];
+// Loads from cache the second time.
+NSData *valueSecondTime = fileLoader[@"TextFile1.txt"];
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Contributing
