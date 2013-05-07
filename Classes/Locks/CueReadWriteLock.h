@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CueFairLock.h"
-#import "CueThreadLocal.h"
+#import "../Threading/CueThreadLocal.h"
 
 /**
  * Cue Read/Write Lock.
