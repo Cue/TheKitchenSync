@@ -12,8 +12,6 @@
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
 		9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987417359ED8009F7E56 /* SenTestingKit.framework */; };
-		9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987617359EE0009F7E56 /* libc++.dylib */; };
-		9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987717359EE0009F7E56 /* libstdc++.dylib */; };
 		908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598CF1735B838009F7E56 /* CCCustomDealloc.m */; };
 		908598D51735B838009F7E56 /* CCThreadSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D11735B838009F7E56 /* CCThreadSteps.m */; };
 		908598D61735B838009F7E56 /* CueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D31735B838009F7E56 /* CueTest.m */; };
@@ -28,6 +26,7 @@
 		908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */; };
 		908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */; };
 		90C1DB0917398C6E00521E5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C1DB0817398C6E00521E5E /* UIKit.framework */; };
+		90C1DBB71739B4EC00521E5E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987617359EE0009F7E56 /* libc++.dylib */; };
 		90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B35173599AA003E0958 /* CueThreadLocal.m */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +96,8 @@
 		908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueLoadingCacheTest.h; path = CueConcurrencyTests/CueLoadingCacheTest.h; sourceTree = SOURCE_ROOT; };
 		908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueLoadingCacheTest.m; path = CueConcurrencyTests/CueLoadingCacheTest.m; sourceTree = SOURCE_ROOT; };
 		90C1DB0817398C6E00521E5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		90C76B34173599AA003E0958 /* CueThreadLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadLocal.h; sourceTree = "<group>"; };
-		90C76B35173599AA003E0958 /* CueThreadLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadLocal.m; sourceTree = "<group>"; };
+		90C76B34173599AA003E0958 /* CueThreadLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueThreadLocal.h; path = Threading/CueThreadLocal.h; sourceTree = "<group>"; };
+		90C76B35173599AA003E0958 /* CueThreadLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueThreadLocal.m; path = Threading/CueThreadLocal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +112,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C1DBB71739B4EC00521E5E /* libc++.dylib in Frameworks */,
 				900BE43A16F6600300686BF9 /* libCueConcurrency.a in Frameworks */,
 				90C1DB0917398C6E00521E5E /* UIKit.framework in Frameworks */,
-				9085987817359EE0009F7E56 /* libc++.dylib in Frameworks */,
-				9085987917359EE0009F7E56 /* libstdc++.dylib in Frameworks */,
 				9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,10 +156,9 @@
 		900BE42616F6600300686BF9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				90C1DBB61739B45000521E5E /* Threading */,
 				908E901D17398B90005B5483 /* Collections */,
 				908E902917398B90005B5483 /* Locks */,
-				90C76B34173599AA003E0958 /* CueThreadLocal.h */,
-				90C76B35173599AA003E0958 /* CueThreadLocal.m */,
 				900BE42716F6600300686BF9 /* Supporting Files */,
 			);
 			path = Classes;
@@ -253,6 +250,15 @@
 				908598D31735B838009F7E56 /* CueTest.m */,
 			);
 			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		90C1DBB61739B45000521E5E /* Threading */ = {
+			isa = PBXGroup;
+			children = (
+				90C76B34173599AA003E0958 /* CueThreadLocal.h */,
+				90C76B35173599AA003E0958 /* CueThreadLocal.m */,
+			);
+			name = Threading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
