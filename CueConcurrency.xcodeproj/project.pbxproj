@@ -17,12 +17,17 @@
 		908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598CF1735B838009F7E56 /* CCCustomDealloc.m */; };
 		908598D51735B838009F7E56 /* CCThreadSteps.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D11735B838009F7E56 /* CCThreadSteps.m */; };
 		908598D61735B838009F7E56 /* CueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D31735B838009F7E56 /* CueTest.m */; };
-		90C76B3D173599AA003E0958 /* CueFairLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2C173599AA003E0958 /* CueFairLock.m */; };
-		90C76B3E173599AA003E0958 /* CueReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B2E173599AA003E0958 /* CueReadWriteLock.m */; };
-		90C76B3F173599AA003E0958 /* CueStackLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B30173599AA003E0958 /* CueStackLock.mm */; };
+		908E903117398B90005B5483 /* CueConcurrentArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 908E901F17398B90005B5483 /* CueConcurrentArray.mm */; };
+		908E903217398B90005B5483 /* CueConcurrentCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E902117398B90005B5483 /* CueConcurrentCollections.m */; };
+		908E903317398B90005B5483 /* CueConcurrentDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 908E902417398B90005B5483 /* CueConcurrentDictionary.mm */; };
+		908E903417398B90005B5483 /* CueLoadingCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 908E902617398B90005B5483 /* CueLoadingCache.mm */; };
+		908E903517398B90005B5483 /* CueValueLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E902817398B90005B5483 /* CueValueLoader.m */; };
+		908E903617398B90005B5483 /* CueFairLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E902B17398B90005B5483 /* CueFairLock.m */; };
+		908E903717398B90005B5483 /* CueReadWriteLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E902D17398B90005B5483 /* CueReadWriteLock.m */; };
+		908E903817398B90005B5483 /* CueStackLock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 908E902F17398B90005B5483 /* CueStackLock.mm */; };
+		908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */; };
+		908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */; };
 		90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B35173599AA003E0958 /* CueThreadLocal.m */; };
-		90C76B42173599AA003E0958 /* CueConcurrentArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B38173599AA003E0958 /* CueConcurrentArray.mm */; };
-		90C76B43173599AA003E0958 /* CueConcurrentCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,19 +73,30 @@
 		908598D21735B838009F7E56 /* CueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueTest.h; path = Cue/CueTest/CueTest.h; sourceTree = SOURCE_ROOT; };
 		908598D31735B838009F7E56 /* CueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueTest.m; path = Cue/CueTest/CueTest.m; sourceTree = SOURCE_ROOT; };
 		9085D4391731C786005165D4 /* CueConcurrency-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CueConcurrency-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		90C76B2B173599AA003E0958 /* CueFairLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueFairLock.h; sourceTree = "<group>"; };
-		90C76B2C173599AA003E0958 /* CueFairLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueFairLock.m; sourceTree = "<group>"; };
-		90C76B2D173599AA003E0958 /* CueReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueReadWriteLock.h; sourceTree = "<group>"; };
-		90C76B2E173599AA003E0958 /* CueReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueReadWriteLock.m; sourceTree = "<group>"; };
-		90C76B2F173599AA003E0958 /* CueStackLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueStackLock.h; sourceTree = "<group>"; };
-		90C76B30173599AA003E0958 /* CueStackLock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueStackLock.mm; sourceTree = "<group>"; };
-		90C76B31173599AA003E0958 /* CueTestableLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueTestableLock.h; sourceTree = "<group>"; };
+		908E901E17398B90005B5483 /* CueConcurrentArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentArray.h; sourceTree = "<group>"; };
+		908E901F17398B90005B5483 /* CueConcurrentArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentArray.mm; sourceTree = "<group>"; };
+		908E902017398B90005B5483 /* CueConcurrentCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollections.h; sourceTree = "<group>"; };
+		908E902117398B90005B5483 /* CueConcurrentCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueConcurrentCollections.m; sourceTree = "<group>"; };
+		908E902217398B90005B5483 /* CueConcurrentCollectionsPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollectionsPriv.h; sourceTree = "<group>"; };
+		908E902317398B90005B5483 /* CueConcurrentDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentDictionary.h; sourceTree = "<group>"; };
+		908E902417398B90005B5483 /* CueConcurrentDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentDictionary.mm; sourceTree = "<group>"; };
+		908E902517398B90005B5483 /* CueLoadingCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueLoadingCache.h; sourceTree = "<group>"; };
+		908E902617398B90005B5483 /* CueLoadingCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueLoadingCache.mm; sourceTree = "<group>"; };
+		908E902717398B90005B5483 /* CueValueLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueValueLoader.h; sourceTree = "<group>"; };
+		908E902817398B90005B5483 /* CueValueLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueValueLoader.m; sourceTree = "<group>"; };
+		908E902A17398B90005B5483 /* CueFairLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueFairLock.h; sourceTree = "<group>"; };
+		908E902B17398B90005B5483 /* CueFairLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueFairLock.m; sourceTree = "<group>"; };
+		908E902C17398B90005B5483 /* CueReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueReadWriteLock.h; sourceTree = "<group>"; };
+		908E902D17398B90005B5483 /* CueReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueReadWriteLock.m; sourceTree = "<group>"; };
+		908E902E17398B90005B5483 /* CueStackLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueStackLock.h; sourceTree = "<group>"; };
+		908E902F17398B90005B5483 /* CueStackLock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueStackLock.mm; sourceTree = "<group>"; };
+		908E903017398B90005B5483 /* CueTestableLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueTestableLock.h; sourceTree = "<group>"; };
+		908E903917398BA4005B5483 /* CueConcurrentCollectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueConcurrentCollectionsTest.h; path = CueConcurrencyTests/CueConcurrentCollectionsTest.h; sourceTree = SOURCE_ROOT; };
+		908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueConcurrentCollectionsTest.m; path = CueConcurrencyTests/CueConcurrentCollectionsTest.m; sourceTree = SOURCE_ROOT; };
+		908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueLoadingCacheTest.h; path = CueConcurrencyTests/CueLoadingCacheTest.h; sourceTree = SOURCE_ROOT; };
+		908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueLoadingCacheTest.m; path = CueConcurrencyTests/CueLoadingCacheTest.m; sourceTree = SOURCE_ROOT; };
 		90C76B34173599AA003E0958 /* CueThreadLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadLocal.h; sourceTree = "<group>"; };
 		90C76B35173599AA003E0958 /* CueThreadLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadLocal.m; sourceTree = "<group>"; };
-		90C76B37173599AA003E0958 /* CueConcurrentArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentArray.h; sourceTree = "<group>"; };
-		90C76B38173599AA003E0958 /* CueConcurrentArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentArray.mm; sourceTree = "<group>"; };
-		90C76B39173599AA003E0958 /* CueConcurrentCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollections.h; sourceTree = "<group>"; };
-		90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueConcurrentCollections.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,14 +154,8 @@
 		900BE42616F6600300686BF9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				90C76B36173599AA003E0958 /* Collections */,
-				90C76B2B173599AA003E0958 /* CueFairLock.h */,
-				90C76B2C173599AA003E0958 /* CueFairLock.m */,
-				90C76B2D173599AA003E0958 /* CueReadWriteLock.h */,
-				90C76B2E173599AA003E0958 /* CueReadWriteLock.m */,
-				90C76B2F173599AA003E0958 /* CueStackLock.h */,
-				90C76B30173599AA003E0958 /* CueStackLock.mm */,
-				90C76B31173599AA003E0958 /* CueTestableLock.h */,
+				908E901D17398B90005B5483 /* Collections */,
+				908E902917398B90005B5483 /* Locks */,
 				90C76B34173599AA003E0958 /* CueThreadLocal.h */,
 				90C76B35173599AA003E0958 /* CueThreadLocal.m */,
 				900BE42716F6600300686BF9 /* Supporting Files */,
@@ -179,9 +189,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		908E901D17398B90005B5483 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				908E901E17398B90005B5483 /* CueConcurrentArray.h */,
+				908E901F17398B90005B5483 /* CueConcurrentArray.mm */,
+				908E902017398B90005B5483 /* CueConcurrentCollections.h */,
+				908E902117398B90005B5483 /* CueConcurrentCollections.m */,
+				908E902217398B90005B5483 /* CueConcurrentCollectionsPriv.h */,
+				908E902317398B90005B5483 /* CueConcurrentDictionary.h */,
+				908E902417398B90005B5483 /* CueConcurrentDictionary.mm */,
+				908E902517398B90005B5483 /* CueLoadingCache.h */,
+				908E902617398B90005B5483 /* CueLoadingCache.mm */,
+				908E902717398B90005B5483 /* CueValueLoader.h */,
+				908E902817398B90005B5483 /* CueValueLoader.m */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
+		908E902917398B90005B5483 /* Locks */ = {
+			isa = PBXGroup;
+			children = (
+				908E902A17398B90005B5483 /* CueFairLock.h */,
+				908E902B17398B90005B5483 /* CueFairLock.m */,
+				908E902C17398B90005B5483 /* CueReadWriteLock.h */,
+				908E902D17398B90005B5483 /* CueReadWriteLock.m */,
+				908E902E17398B90005B5483 /* CueStackLock.h */,
+				908E902F17398B90005B5483 /* CueStackLock.mm */,
+				908E903017398B90005B5483 /* CueTestableLock.h */,
+			);
+			path = Locks;
+			sourceTree = "<group>";
+		};
 		9096112516F69E8C00C0FDEC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				908E903917398BA4005B5483 /* CueConcurrentCollectionsTest.h */,
+				908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */,
+				908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */,
+				908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */,
 				9085986917359E3E009F7E56 /* CueFairLockTest.h */,
 				9085986A17359E3E009F7E56 /* CueFairLockTest.m */,
 				9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */,
@@ -203,17 +249,6 @@
 				908598D31735B838009F7E56 /* CueTest.m */,
 			);
 			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		90C76B36173599AA003E0958 /* Collections */ = {
-			isa = PBXGroup;
-			children = (
-				90C76B37173599AA003E0958 /* CueConcurrentArray.h */,
-				90C76B38173599AA003E0958 /* CueConcurrentArray.mm */,
-				90C76B39173599AA003E0958 /* CueConcurrentCollections.h */,
-				90C76B3A173599AA003E0958 /* CueConcurrentCollections.m */,
-			);
-			path = Collections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,12 +349,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C76B3D173599AA003E0958 /* CueFairLock.m in Sources */,
-				90C76B3E173599AA003E0958 /* CueReadWriteLock.m in Sources */,
-				90C76B3F173599AA003E0958 /* CueStackLock.mm in Sources */,
 				90C76B41173599AA003E0958 /* CueThreadLocal.m in Sources */,
-				90C76B42173599AA003E0958 /* CueConcurrentArray.mm in Sources */,
-				90C76B43173599AA003E0958 /* CueConcurrentCollections.m in Sources */,
+				908E903117398B90005B5483 /* CueConcurrentArray.mm in Sources */,
+				908E903217398B90005B5483 /* CueConcurrentCollections.m in Sources */,
+				908E903317398B90005B5483 /* CueConcurrentDictionary.mm in Sources */,
+				908E903417398B90005B5483 /* CueLoadingCache.mm in Sources */,
+				908E903517398B90005B5483 /* CueValueLoader.m in Sources */,
+				908E903617398B90005B5483 /* CueFairLock.m in Sources */,
+				908E903717398B90005B5483 /* CueReadWriteLock.m in Sources */,
+				908E903817398B90005B5483 /* CueStackLock.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +371,8 @@
 				908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */,
 				908598D51735B838009F7E56 /* CCThreadSteps.m in Sources */,
 				908598D61735B838009F7E56 /* CueTest.m in Sources */,
+				908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */,
+				908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

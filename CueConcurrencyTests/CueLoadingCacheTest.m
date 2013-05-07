@@ -8,7 +8,6 @@
 
 #import "CueLoadingCacheTest.h"
 #import "CueLoadingCache.h"
-#import "NSString+CueCore.h"
 
 @implementation CueLoadingCacheTest
 
@@ -18,7 +17,7 @@
     
     CueLoadingCache *cache = [[CueLoadingCache alloc] initWithLoader:^id (id parameter) {
         count++;
-        return FORMAT(@"%@%d", parameter, count);
+        return [NSString stringWithFormat:@"%@%d", parameter, count];
     } isMemorySensitive:isMemorySensitive];
     
     AssertObjectEquals(@"A1", [cache objectForKey:@"A"]);
