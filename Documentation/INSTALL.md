@@ -42,38 +42,30 @@ and then submit your pull request from your forked repo.
 
 ## Add to your project
 
-Open Finder, navigate to `hookshot.xcodeproj`, and drag it in to your project:
+Open Finder, navigate to `CueConcurrency.xcodeproj`, and drag it in to your project:
 
-![Drag CueConcurrency in to your project](https://raw.github.com/Cue/CueConcurrency/master/Documentation/Images/DragToProject.png)
+![Drag CueConcurrency in to your project](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/DragToProject.png?raw=true)
 
 should result in something like this:
 
-![After adding CueConcurrency](https://raw.github.com/Cue/CueConcurrency/master/Documentation/Images/ShowInProject.png)
+![After adding CueConcurrency](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/ShowInProject.png?raw=true)
 
-Select the subproject, then choose `Build Settings`.  Search for `c++`
-
-* Ensure `C++ Language Dialect` is `GNU++11` or `C++11`
-
-* Ensure `C++ Standard Library` is `libc++`
-
-Search for `header`
+Select your root project. Search for `header`
 
 * Add relative or full path to `CueConcurrency/Classes` to `Header Search Paths`
 
-![Header search paths](https://raw.github.com/Cue/hookshot/master/Documentation/Images/HeaderSearchPaths.png)
+![Header search paths](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/HeaderSearchPaths.png?raw=true)
 
-Select your root project.  For each the target you want to use CueConcurrency with
+For each the target you want to use CueConcurrency with
 
 * Select `Build Phases`
 
 * Open the `Link Binary With Libraries` panel
 
-![Before linking libraries](https://raw.github.com/Cue/hookshot/master/Documentation/Images/BeforeLinkLibraries.png)
+![Before linking libraries](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/BeforeLinkLibraries.png?raw=true)
 
 * Add `libCueConcurrency.a`
 
-* Add `libc++.dylib`
-
-![Link libraries](https://raw.github.com/Cue/hookshot/master/Documentation/Images/LinkLibraries.png)
+![Link libraries](https://github.com/Cue/CueConcurrency/blob/master/Documentation/Images/LinkLibraries.png?raw=true)
 
 You're now ready to start using CueConcurrency!
