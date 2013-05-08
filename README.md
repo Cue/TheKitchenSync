@@ -26,6 +26,7 @@ This helps minimize forgotten unlocks and guarantees correct exception cleanup.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 - (BOOL)safeLockedQuery {
+  // Guarantees lock until scope ends.
   CueStackLock(_lock);
   if ([self needsToBreak]) {
     return NO;
@@ -42,15 +43,22 @@ In addition, it allows the client to set a delegate to implement custom task ded
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 CueTaskQueue *queue = [[CueTaskQueue alloc] initWithName:@"PewPewQueue"];
-queue.threadPriority = 0.3; // relatively low-priority queue.
-[queue startWithThreadCount:1]; // single-thread so you don't have to worry about @synchronizing everything.
-  __block int count = 0;
-  for (int i = 0; i < 10; ++i) {
-    [queue addTask:[CueBlockTask taskWithKey:@(count) priority:1.0f executionBlock:^(CueTask *task) {
-      NSLog(@"Task %d reporting for duty!", count);
-    }]];
-  }
-[queue finish]; // removes the thread.
+
+// relatively low-priority queue.
+queue.threadPriority = 0.3; 
+
+// single-thread so you don't have to worry about @synchronizing everything.
+[queue startWithThreadCount:1]; 
+
+__block int count = 0;
+for (int i = 0; i < 10; ++i) {
+  [queue addTask:[CueBlockTask taskWithKey:@(count) priority:1.0f executionBlock:^(CueTask *task) {
+    NSLog(@"Task %d reporting for duty!", count++);
+  }]];
+}
+
+// Cleans up and removes the thread.
+[queue finish]; 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## CueLoadingCache
