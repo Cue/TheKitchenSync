@@ -5,9 +5,9 @@ targets:
     deps: []
     args:
       test:
-      - :CueConcurrency
+      - :TheKitchenSync
     precommit: true
-  CueConcurrency:
+  TheKitchenSync:
     type: xcode.IOS
     args:
-      suite: CueConcurrencyTests
+      suite: TheKitchenSyncTests

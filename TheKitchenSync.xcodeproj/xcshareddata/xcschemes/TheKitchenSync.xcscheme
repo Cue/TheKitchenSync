@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "900BE42016F6600300686BF9"
-               BuildableName = "libCueConcurrency.a"
-               BlueprintName = "CueConcurrency"
-               ReferencedContainer = "container:CueConcurrency.xcodeproj">
+               BuildableName = "libTheKitchenSync.a"
+               BlueprintName = "TheKitchenSync"
+               ReferencedContainer = "container:TheKitchenSync.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "900BE43116F6600300686BF9"
-               BuildableName = "CueConcurrencyTests.octest"
-               BlueprintName = "CueConcurrencyTests"
-               ReferencedContainer = "container:CueConcurrency.xcodeproj">
+               BuildableName = "TheKitchenSyncTests.octest"
+               BlueprintName = "TheKitchenSyncTests"
+               ReferencedContainer = "container:TheKitchenSync.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

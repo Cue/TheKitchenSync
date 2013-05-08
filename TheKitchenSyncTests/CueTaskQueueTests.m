@@ -7,7 +7,7 @@
 //
 
 #import "CueTaskQueueTests.h"
-#import "CueConcurrency.h"
+#import "TheKitchenSync.h"
 
 #pragma mark - Keep First Delegate
 

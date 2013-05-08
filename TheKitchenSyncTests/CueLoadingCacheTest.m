@@ -7,7 +7,7 @@
 //
 
 #import "CueLoadingCacheTest.h"
-#import "CueConcurrency.h"
+#import "TheKitchenSync.h"
 
 @implementation CueLoadingCacheTest
 

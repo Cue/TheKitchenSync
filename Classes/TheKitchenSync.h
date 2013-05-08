@@ -1,6 +1,6 @@
 //
-//  CueConcurrency.h
-//  CueConcurrency
+//  TheKitchenSync.h
+//  TheKitchenSync
 //
 //  Created by Aaron Sarazan on 5/7/13.
 //  Copyright (c) 2013 Cue. All rights reserved.

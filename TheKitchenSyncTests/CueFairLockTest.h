@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 The CueConcurrency Authors.
+ * Copyright 2013 TheKitchenSync Authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,6 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "CueTestableLock.h"
+#import "CueTest.h"
 
-/**
- * Utils for running concurrency unit tests.
- */
-@interface CueThreadSteps : NSObject {
-    NSMutableDictionary *_threads;
-    BOOL _isStopped;
-}
-
-- (void)runOnThread:(int)thread block:(void (^)())block;
-
-- (void)asyncRunOnThread:(int)thread block:(void (^)())block;
-
-- (void)asyncRunOnThread:(int)threadId untilLocked:(id<CueTestableLock>)lock block:(void (^)())block;
-
-@end
+TEST_CLASS(CueFairLockTest)

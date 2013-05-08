@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 The CueConcurrency Authors.
+ * Copyright 2013 TheKitchenSync Authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
 #import "CueStackLock.h"
 #import "CueConcurrentCollections.h"
 
-#ifndef CueConcurrency_CueConcurrentCollectionsPriv_h
-#define CueConcurrency_CueConcurrentCollectionsPriv_h
+#ifndef TheKitchenSync_CueConcurrentCollectionsPriv_h
+#define TheKitchenSync_CueConcurrentCollectionsPriv_h
 
 #define READ CueStackLock(_lock);
 #define WRITE CueStackLockWrite(_lock);
