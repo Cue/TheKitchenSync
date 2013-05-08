@@ -1,4 +1,4 @@
-TheKitchenSync - Concurrency by Cue.
+TheKitchenSync - Concurrency by Cue
 ===========================
 
 Cue's concurrency library provides you with a basic set of advanced locks and thread-safe collections, similar to what you might find in Java. 
@@ -39,6 +39,9 @@ This helps minimize forgotten unlocks and guarantees correct exception cleanup.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Make sure you compile as Objective C++ when using CueStackLock. 
 Generally this means changing your file extension from .m to .mm
+
+## CueTaskQueue
+TODO
 
 ## CueLoadingCache
 Similar to [Guava MapMaker](http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/com/google/common/collect/MapMaker.html), 
