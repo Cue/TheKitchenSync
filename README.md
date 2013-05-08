@@ -41,7 +41,24 @@ Make sure you compile as Objective C++ when using CueStackLock.
 Generally this means changing your file extension from .m to .mm
 
 ## CueTaskQueue
-TODO
+The CueTaskQueue is similar in concept to a dispatch queue, but with more control. For one, it explicitly maintains a user-configurable number of dedicated threads for execution.
+In addition, it allows the client to set a delegate to implement custom task deduping logic.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
+#import "CueTaskQueue.h"
+#import "CueBlockTask.h"
+/***/
+CueTaskQueue *queue = [[CueTaskQueue alloc] initWithName:@"PewPewQueue"];
+queue.threadPriority = 0.3; // relatively low-priority queue.
+[queue startWithThreadCount:1]; // single-thread so you don't have to worry about @synchronizing everything.
+  __block int count = 0;
+  for (int i = 0; i < 10; ++i) {
+    [queue addTask:[CueBlockTask taskWithKey:@(count) priority:1.0f executionBlock:^(CueTask *task) {
+      NSLog(@"Task %d reporting for duty!", count);
+    }]];
+  }
+[queue finish]; // removes the thread.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## CueLoadingCache
 Similar to [Guava MapMaker](http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/com/google/common/collect/MapMaker.html), 
