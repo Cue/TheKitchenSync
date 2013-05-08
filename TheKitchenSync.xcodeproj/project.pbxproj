@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		900BE43A16F6600300686BF9 /* libTheKitchenSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BE42116F6600300686BF9 /* libTheKitchenSync.a */; };
 		901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */; };
+		901D9103173AF89C009DE62B /* CueSafeArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D90FD173AF89C009DE62B /* CueSafeArray.mm */; };
+		901D9104173AF89C009DE62B /* CueSafeCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D90FF173AF89C009DE62B /* CueSafeCollections.m */; };
+		901D9105173AF89C009DE62B /* CueSafeDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D9102173AF89C009DE62B /* CueSafeDictionary.mm */; };
+		901D9108173AF8AB009DE62B /* CueSafeCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D9107173AF8AB009DE62B /* CueSafeCollectionsTest.m */; };
 		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
 		9085987517359ED8009F7E56 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987417359ED8009F7E56 /* SenTestingKit.framework */; };
 		908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598CF1735B838009F7E56 /* CCCustomDealloc.m */; };
 		908598D61735B838009F7E56 /* CueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908598D31735B838009F7E56 /* CueTest.m */; };
-		908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */; };
 		908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */; };
 		90C1DB0917398C6E00521E5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C1DB0817398C6E00521E5E /* UIKit.framework */; };
 		90C1DBB71739B4EC00521E5E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9085987617359EE0009F7E56 /* libc++.dylib */; };
-		90C1DC111739D53D00521E5E /* CueConcurrentArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBF01739D53D00521E5E /* CueConcurrentArray.mm */; };
-		90C1DC121739D53D00521E5E /* CueConcurrentCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBF21739D53D00521E5E /* CueConcurrentCollections.m */; };
-		90C1DC131739D53D00521E5E /* CueConcurrentDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBF51739D53D00521E5E /* CueConcurrentDictionary.mm */; };
 		90C1DC141739D53D00521E5E /* CueLoadingCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBF71739D53D00521E5E /* CueLoadingCache.mm */; };
 		90C1DC151739D53D00521E5E /* CueValueLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBF91739D53D00521E5E /* CueValueLoader.m */; };
 		90C1DC161739D53D00521E5E /* CueFairLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C1DBFD1739D53D00521E5E /* CueFairLock.m */; };
@@ -65,6 +65,15 @@
 		900BE43D16F6600300686BF9 /* TheKitchenSyncTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheKitchenSyncTests-Info.plist"; sourceTree = "<group>"; };
 		901D90F9173ADDE0009DE62B /* CueThreadPerformAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadPerformAdditions.h; sourceTree = "<group>"; };
 		901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadPerformAdditions.m; sourceTree = "<group>"; };
+		901D90FC173AF89C009DE62B /* CueSafeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSafeArray.h; sourceTree = "<group>"; };
+		901D90FD173AF89C009DE62B /* CueSafeArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueSafeArray.mm; sourceTree = "<group>"; };
+		901D90FE173AF89C009DE62B /* CueSafeCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSafeCollections.h; sourceTree = "<group>"; };
+		901D90FF173AF89C009DE62B /* CueSafeCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueSafeCollections.m; sourceTree = "<group>"; };
+		901D9100173AF89C009DE62B /* CueSafeCollectionsPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSafeCollectionsPriv.h; sourceTree = "<group>"; };
+		901D9101173AF89C009DE62B /* CueSafeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSafeDictionary.h; sourceTree = "<group>"; };
+		901D9102173AF89C009DE62B /* CueSafeDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueSafeDictionary.mm; sourceTree = "<group>"; };
+		901D9106173AF8AB009DE62B /* CueSafeCollectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueSafeCollectionsTest.h; path = TheKitchenSyncTests/CueSafeCollectionsTest.h; sourceTree = SOURCE_ROOT; };
+		901D9107173AF8AB009DE62B /* CueSafeCollectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSafeCollectionsTest.m; path = TheKitchenSyncTests/CueSafeCollectionsTest.m; sourceTree = SOURCE_ROOT; };
 		9085986917359E3E009F7E56 /* CueFairLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueFairLockTest.h; path = TheKitchenSyncTests/CueFairLockTest.h; sourceTree = SOURCE_ROOT; };
 		9085986A17359E3E009F7E56 /* CueFairLockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueFairLockTest.m; path = TheKitchenSyncTests/CueFairLockTest.m; sourceTree = SOURCE_ROOT; };
 		9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueReadWriteLockTest.h; path = TheKitchenSyncTests/CueReadWriteLockTest.h; sourceTree = SOURCE_ROOT; };
@@ -80,18 +89,9 @@
 		908598D21735B838009F7E56 /* CueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueTest.h; path = Cue/CueTest/CueTest.h; sourceTree = SOURCE_ROOT; };
 		908598D31735B838009F7E56 /* CueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueTest.m; path = Cue/CueTest/CueTest.m; sourceTree = SOURCE_ROOT; };
 		9085D4391731C786005165D4 /* TheKitchenSync-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheKitchenSync-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		908E903917398BA4005B5483 /* CueConcurrentCollectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueConcurrentCollectionsTest.h; path = TheKitchenSyncTests/CueConcurrentCollectionsTest.h; sourceTree = SOURCE_ROOT; };
-		908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueConcurrentCollectionsTest.m; path = TheKitchenSyncTests/CueConcurrentCollectionsTest.m; sourceTree = SOURCE_ROOT; };
 		908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueLoadingCacheTest.h; path = TheKitchenSyncTests/CueLoadingCacheTest.h; sourceTree = SOURCE_ROOT; };
 		908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueLoadingCacheTest.m; path = TheKitchenSyncTests/CueLoadingCacheTest.m; sourceTree = SOURCE_ROOT; };
 		90C1DB0817398C6E00521E5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		90C1DBEF1739D53D00521E5E /* CueConcurrentArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentArray.h; sourceTree = "<group>"; };
-		90C1DBF01739D53D00521E5E /* CueConcurrentArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentArray.mm; sourceTree = "<group>"; };
-		90C1DBF11739D53D00521E5E /* CueConcurrentCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollections.h; sourceTree = "<group>"; };
-		90C1DBF21739D53D00521E5E /* CueConcurrentCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueConcurrentCollections.m; sourceTree = "<group>"; };
-		90C1DBF31739D53D00521E5E /* CueConcurrentCollectionsPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentCollectionsPriv.h; sourceTree = "<group>"; };
-		90C1DBF41739D53D00521E5E /* CueConcurrentDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueConcurrentDictionary.h; sourceTree = "<group>"; };
-		90C1DBF51739D53D00521E5E /* CueConcurrentDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueConcurrentDictionary.mm; sourceTree = "<group>"; };
 		90C1DBF61739D53D00521E5E /* CueLoadingCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueLoadingCache.h; sourceTree = "<group>"; };
 		90C1DBF71739D53D00521E5E /* CueLoadingCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueLoadingCache.mm; sourceTree = "<group>"; };
 		90C1DBF81739D53D00521E5E /* CueValueLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueValueLoader.h; sourceTree = "<group>"; };
@@ -217,12 +217,12 @@
 		9096112516F69E8C00C0FDEC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				901D9106173AF8AB009DE62B /* CueSafeCollectionsTest.h */,
+				901D9107173AF8AB009DE62B /* CueSafeCollectionsTest.m */,
 				90C1DC1F1739D54C00521E5E /* CueTaskQueueTests.h */,
 				90C1DC201739D54C00521E5E /* CueTaskQueueTests.m */,
 				90C1DC211739D54C00521E5E /* CueThreadSteps.h */,
 				90C1DC221739D54C00521E5E /* CueThreadSteps.m */,
-				908E903917398BA4005B5483 /* CueConcurrentCollectionsTest.h */,
-				908E903A17398BA4005B5483 /* CueConcurrentCollectionsTest.m */,
 				908E903B17398BA4005B5483 /* CueLoadingCacheTest.h */,
 				908E903C17398BA4005B5483 /* CueLoadingCacheTest.m */,
 				9085986917359E3E009F7E56 /* CueFairLockTest.h */,
@@ -249,13 +249,13 @@
 		90C1DBEE1739D53D00521E5E /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				90C1DBEF1739D53D00521E5E /* CueConcurrentArray.h */,
-				90C1DBF01739D53D00521E5E /* CueConcurrentArray.mm */,
-				90C1DBF11739D53D00521E5E /* CueConcurrentCollections.h */,
-				90C1DBF21739D53D00521E5E /* CueConcurrentCollections.m */,
-				90C1DBF31739D53D00521E5E /* CueConcurrentCollectionsPriv.h */,
-				90C1DBF41739D53D00521E5E /* CueConcurrentDictionary.h */,
-				90C1DBF51739D53D00521E5E /* CueConcurrentDictionary.mm */,
+				901D90FC173AF89C009DE62B /* CueSafeArray.h */,
+				901D90FD173AF89C009DE62B /* CueSafeArray.mm */,
+				901D90FE173AF89C009DE62B /* CueSafeCollections.h */,
+				901D90FF173AF89C009DE62B /* CueSafeCollections.m */,
+				901D9100173AF89C009DE62B /* CueSafeCollectionsPriv.h */,
+				901D9101173AF89C009DE62B /* CueSafeDictionary.h */,
+				901D9102173AF89C009DE62B /* CueSafeDictionary.mm */,
 				90C1DBF61739D53D00521E5E /* CueLoadingCache.h */,
 				90C1DBF71739D53D00521E5E /* CueLoadingCache.mm */,
 				90C1DBF81739D53D00521E5E /* CueValueLoader.h */,
@@ -404,9 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C1DC111739D53D00521E5E /* CueConcurrentArray.mm in Sources */,
-				90C1DC121739D53D00521E5E /* CueConcurrentCollections.m in Sources */,
-				90C1DC131739D53D00521E5E /* CueConcurrentDictionary.mm in Sources */,
 				90C1DC141739D53D00521E5E /* CueLoadingCache.mm in Sources */,
 				90C1DC151739D53D00521E5E /* CueValueLoader.m in Sources */,
 				90C1DC161739D53D00521E5E /* CueFairLock.m in Sources */,
@@ -419,6 +416,9 @@
 				90C1DC1D1739D53E00521E5E /* PewPewCueQueue.m in Sources */,
 				90C1DC1E1739D53E00521E5E /* CueThreadLocal.m in Sources */,
 				901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */,
+				901D9103173AF89C009DE62B /* CueSafeArray.mm in Sources */,
+				901D9104173AF89C009DE62B /* CueSafeCollections.m in Sources */,
+				901D9105173AF89C009DE62B /* CueSafeDictionary.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,10 +431,10 @@
 				9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */,
 				908598D41735B838009F7E56 /* CCCustomDealloc.m in Sources */,
 				908598D61735B838009F7E56 /* CueTest.m in Sources */,
-				908E903D17398BA4005B5483 /* CueConcurrentCollectionsTest.m in Sources */,
 				908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */,
 				90C1DC231739D54C00521E5E /* CueTaskQueueTests.m in Sources */,
 				90C1DC241739D54C00521E5E /* CueThreadSteps.m in Sources */,
+				901D9108173AF8AB009DE62B /* CueSafeCollectionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

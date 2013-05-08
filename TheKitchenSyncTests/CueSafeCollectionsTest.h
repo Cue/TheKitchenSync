@@ -16,4 +16,4 @@
 
 #import "CueTest.h"
 
-TEST_CLASS(CueConcurrentCollectionsTest)
+TEST_CLASS(CueSafeCollectionsTest)

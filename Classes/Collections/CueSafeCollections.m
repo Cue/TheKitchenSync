@@ -14,13 +14,22 @@
  * limitations under the License.
  */
 
-#import "CueConcurrentArray.h"
-#import "CueConcurrentDictionary.h"
+#import "CueSafeCollections.h"
 
-@interface NSArray (CueConcurrentCollections)
-- (CueConcurrentArray *)cueConcurrent;
+@implementation NSArray (CueSafeCollections)
+
+- (CueSafeArray *)cueConcurrent;
+{
+    return [CueSafeArray from:self];
+}
+
 @end
 
-@interface NSDictionary (CueConcurrentCollections)
-- (CueConcurrentDictionary *)cueConcurrent;
+@implementation NSDictionary (CueSafeCollections)
+
+- (CueSafeDictionary *)cueConcurrent;
+{
+    return [CueSafeDictionary from:self];
+}
+
 @end

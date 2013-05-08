@@ -10,7 +10,7 @@
 #import "CueReadWriteLock.h"
 #import "CueStackLock.h"
 
-#import "CueConcurrentCollections.h"
+#import "CueSafeCollections.h"
 #import "CueLoadingCache.h"
 
 #import "CueThreadLocal.h"

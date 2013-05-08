@@ -14,22 +14,13 @@
  * limitations under the License.
  */
 
-#import "CueConcurrentCollections.h"
+#import "CueStackLock.h"
+#import "CueSafeCollections.h"
 
-@implementation NSArray (CueConcurrentCollections)
+#ifndef TheKitchenSync_CueSafeCollectionsPriv_h
+#define TheKitchenSync_CueSafeCollectionsPriv_h
 
-- (CueConcurrentArray *)cueConcurrent;
-{
-    return [CueConcurrentArray from:self];
-}
+#define READ CueStackLock(_lock);
+#define WRITE CueStackLockWrite(_lock);
 
-@end
-
-@implementation NSDictionary (CueConcurrentCollections)
-
-- (CueConcurrentDictionary *)cueConcurrent;
-{
-    return [CueConcurrentDictionary from:self];
-}
-
-@end
+#endif

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#import "CueConcurrentArray.h"
-#import "CueConcurrentCollectionsPriv.h"
+#import "CueSafeArray.h"
+#import "CueSafeCollectionsPriv.h"
 #import "CueReadWriteLock.h"
 
-@implementation CueConcurrentArray {
+@implementation CueSafeArray {
     NSMutableArray *_array;
     CueReadWriteLock *_lock;
 }
@@ -145,7 +145,7 @@
 
 #pragma mark - Filter and Sort
 
-- (CueConcurrentArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+- (CueSafeArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
     READ
     return [[_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent];
@@ -157,7 +157,7 @@
     [_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]];
 }
 
-- (CueConcurrentArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
+- (CueSafeArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
 {
     READ
     return [[_array sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent];
@@ -236,8 +236,8 @@
         return YES;
     }    
     READ
-    if ([object isKindOfClass:[CueConcurrentArray class]]) {
-        CueConcurrentArray *other = object;
+    if ([object isKindOfClass:[CueSafeArray class]]) {
+        CueSafeArray *other = object;
         id lock = other->_lock;
         CueStackLock(lock);
         return [_array isEqual:other->_array];

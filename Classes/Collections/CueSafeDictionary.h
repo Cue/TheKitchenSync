@@ -20,7 +20,7 @@
  * A thread-safe dictionary object composed of
  * an NSMutableDictionary and a CueReadWriteLock.
  */
-@interface CueConcurrentDictionary : NSObject
+@interface CueSafeDictionary : NSObject
 <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
 
 
