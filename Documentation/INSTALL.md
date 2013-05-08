@@ -3,7 +3,7 @@
 There are three ways to integrate TheKitchenSync into your project:
 * Use [Cocoapods](http://cocoapods.org/)
 * Import TheKitchenSync.xcodeproj
-* Pick and choose the files you need.
+* Pick and choose the files you need (use _-fobc-no-arc_ if your target uses ARC).
 
 ### Cocoapods
 If you're already using Cocoapods then this will be very easy, just add `pod "TheKitchenSync"` to your Podfile
