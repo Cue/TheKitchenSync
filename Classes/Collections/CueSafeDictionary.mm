@@ -82,6 +82,12 @@
     return [[[_dict objectForKeyedSubscript:key] retain] autorelease];
 }
 
+- (NSString *)description;
+{
+    READ
+    return [_dict description];
+}
+
 
 #pragma mark - Add
 

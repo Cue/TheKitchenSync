@@ -82,6 +82,12 @@
     return [[[_array objectAtIndexedSubscript:idx] retain] autorelease];
 }
 
+- (NSString *)description;
+{
+    READ
+    return [_array description];
+}
+
 
 #pragma mark - Add
 
