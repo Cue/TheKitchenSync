@@ -7,7 +7,7 @@
 //
 
 #import "CueLoadingCacheTest.h"
-#import "CueLoadingCache.h"
+#import "CueConcurrency.h"
 
 @implementation CueLoadingCacheTest
 
@@ -16,7 +16,7 @@
     __block int count = 0;
     
     CueLoadingCache *cache = [[CueLoadingCache alloc] initWithLoader:^id (id parameter) {
-        return [NSString stringWithFormat:@"%@%d", parameter, ++count];
+        return [NSString stringWithFormat:@"%@%d", parameter, ++count];        
     } isMemorySensitive:isMemorySensitive];
     
     AssertObjectEquals(@"A1", [cache objectForKey:@"A"]);

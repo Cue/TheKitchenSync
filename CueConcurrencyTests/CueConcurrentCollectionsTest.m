@@ -15,7 +15,7 @@
  */
 
 #import "CueConcurrentCollectionsTest.h"
-#import "CueConcurrentCollections.h"
+#import "CueConcurrency.h"
 
 @implementation CueConcurrentCollectionsTest
 

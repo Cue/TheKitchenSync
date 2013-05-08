@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import "CCThreadSteps.h"
+#import "CueThreadSteps.h"
 
-@implementation CCThreadSteps
+@implementation CueThreadSteps
 
 - (id)init;
 {

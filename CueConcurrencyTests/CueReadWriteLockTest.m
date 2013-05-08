@@ -15,8 +15,8 @@
  */
 
 #import "CueReadWriteLockTest.h"
-#import "CueReadWriteLock.h"
-#import "CCThreadSteps.h"
+#import "CueConcurrency.h"
+#import "CueThreadSteps.h"
 
 // a = acquiring
 // h = held
@@ -61,14 +61,14 @@
 @implementation CueReadWriteLockTest {
     NSMutableArray *_result;
     CueReadWriteLock *_lock;
-    CCThreadSteps *_test;
+    CueThreadSteps *_test;
 }
 
 - (void)setUp;
 {
     _result = [[NSMutableArray array] retain];
     _lock = [[CueReadWriteLock alloc] init];
-    _test = [[CCThreadSteps alloc] init];
+    _test = [[CueThreadSteps alloc] init];
 }
 
 - (void)tearDown;

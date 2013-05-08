@@ -15,8 +15,8 @@
  */
 
 #import "CueFairLockTest.h"
-#import "CueFairLock.h"
-#import "CCThreadSteps.h"
+#import "CueConcurrency.h"
+#import "CueThreadSteps.h"
 
 
 #define NAME [[NSThread currentThread] name]
@@ -27,7 +27,7 @@
 {
     NSMutableArray *result = [NSMutableArray array];
     CueFairLock *lock = [[CueFairLock alloc] init];
-    CCThreadSteps *test = [[CCThreadSteps alloc] init];
+    CueThreadSteps *test = [[CueThreadSteps alloc] init];
 
     [test runOnThread:1 block:^{
         [result addObject:NAME];

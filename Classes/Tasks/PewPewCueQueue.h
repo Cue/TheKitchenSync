@@ -14,21 +14,29 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "CueTestableLock.h"
+#import "CueTaskQueue.h"
 
 /**
- * Utils for running concurrency unit tests.
+ * CueDelegateByPewingPew.
  */
-@interface CCThreadSteps : NSObject {
-    NSMutableDictionary *_threads;
-    BOOL _isStopped;
-}
+@protocol CueQueuePewPew <NSObject>
 
-- (void)runOnThread:(int)thread block:(void (^)())block;
+/**
+ * Recommend calling twice.
+ */
+- (void)pew;
 
-- (void)asyncRunOnThread:(int)thread block:(void (^)())block;
+@end
 
-- (void)asyncRunOnThread:(int)threadId untilLocked:(id<CueTestableLock>)lock block:(void (^)())block;
+/**
+ * Because it absolutely had to be done.
+ * This subclass serves no purpose except that it is awesome.
+ */
+@interface PewPewCueQueue : CueTaskQueue
+
+/**
+ * Moar pewpew.
+ */
+@property (assign) NSObject<CueQueuePewPew> *pewDelegate;
 
 @end

@@ -15,8 +15,8 @@
  */
 
 #import "CueThreadLocalTest.h"
-#import "CueThreadLocal.h"
-#import "CCThreadSteps.h"
+#import "CueConcurrency.h"
+#import "CueThreadSteps.h"
 
 @implementation CueThreadLocalTest
 
@@ -25,7 +25,7 @@
     NSMutableArray *result = [NSMutableArray array];
     CueThreadLocal *a = [[[CueThreadLocal alloc] init] autorelease];
     CueThreadLocal *b = [[[CueThreadLocal alloc] init] autorelease];
-    CCThreadSteps *test = [[[CCThreadSteps alloc] init] autorelease];
+    CueThreadSteps *test = [[[CueThreadSteps alloc] init] autorelease];
 
     [test runOnThread:1 block:^{
         [result addObject:[a get] ? @"1t" : @"1f"];
