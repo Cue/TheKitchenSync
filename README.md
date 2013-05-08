@@ -1,10 +1,10 @@
-CueConcurrency
+TheKitchenSync - Concurrency Utilities by Cue.
 ===========================
 
-Cue's concurrency library provides you with a basic set of advanced locks and collections, similar to what you might find in Java. 
+Cue's concurrency library provides you with a basic set of advanced locks and thread-safe collections, similar to what you might find in Java. 
 
 ## Installation
-You can get CueConcurrency in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md)
+You can get TheKitchenSync in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md)
 
 ## Collections
 Cue's thread-safe array and dictionary classes support all of the basic operations of arrays and dictionaries, 
@@ -21,7 +21,7 @@ BACKGROUND(^{
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Locks
-For more complex locking schemes, CueConcurrency provides __CueFairLock__, as well as a __CueReadWriteLock__.
+For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__.
 
 Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
 This helps minimize forgotten unlocks and guarantees correct exception cleanup.
@@ -69,6 +69,6 @@ We're always happy to receive pull requests!
 
 ## License
 
-Copyright 2013 The CueConcurrency Authors.
+Copyright 2013 The TheKitchenSync Authors.
 
 Published under The Apache License, see LICENSE
