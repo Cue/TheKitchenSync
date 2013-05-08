@@ -14,6 +14,7 @@
 #import "CueLoadingCache.h"
 
 #import "CueThreadLocal.h"
+#import "CueThreadPerformAdditions.h"
 
 #import "CueTaskQueue.h"
 #import "CueBlockTask.h"

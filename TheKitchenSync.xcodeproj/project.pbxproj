@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		900BE43A16F6600300686BF9 /* libTheKitchenSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BE42116F6600300686BF9 /* libTheKitchenSync.a */; };
+		901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */; };
 		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
@@ -62,6 +63,8 @@
 		900BE42116F6600300686BF9 /* libTheKitchenSync.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTheKitchenSync.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		900BE43216F6600300686BF9 /* TheKitchenSyncTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheKitchenSyncTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		900BE43D16F6600300686BF9 /* TheKitchenSyncTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheKitchenSyncTests-Info.plist"; sourceTree = "<group>"; };
+		901D90F9173ADDE0009DE62B /* CueThreadPerformAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueThreadPerformAdditions.h; sourceTree = "<group>"; };
+		901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueThreadPerformAdditions.m; sourceTree = "<group>"; };
 		9085986917359E3E009F7E56 /* CueFairLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueFairLockTest.h; path = TheKitchenSyncTests/CueFairLockTest.h; sourceTree = SOURCE_ROOT; };
 		9085986A17359E3E009F7E56 /* CueFairLockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueFairLockTest.m; path = TheKitchenSyncTests/CueFairLockTest.m; sourceTree = SOURCE_ROOT; };
 		9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueReadWriteLockTest.h; path = TheKitchenSyncTests/CueReadWriteLockTest.h; sourceTree = SOURCE_ROOT; };
@@ -295,6 +298,8 @@
 		90C1DC0E1739D53D00521E5E /* Threading */ = {
 			isa = PBXGroup;
 			children = (
+				901D90F9173ADDE0009DE62B /* CueThreadPerformAdditions.h */,
+				901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */,
 				90C1DC0F1739D53D00521E5E /* CueThreadLocal.h */,
 				90C1DC101739D53D00521E5E /* CueThreadLocal.m */,
 			);
@@ -413,6 +418,7 @@
 				90C1DC1C1739D53E00521E5E /* CueTaskQueue.m in Sources */,
 				90C1DC1D1739D53E00521E5E /* PewPewCueQueue.m in Sources */,
 				90C1DC1E1739D53E00521E5E /* CueThreadLocal.m in Sources */,
+				901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
