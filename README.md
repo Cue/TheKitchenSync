@@ -50,10 +50,9 @@ queue.threadPriority = 0.3;
 // single-thread so you don't have to worry about @synchronizing everything.
 [queue startWithThreadCount:1]; 
 
-__block int count = 0;
 for (int i = 0; i < 10; ++i) {
-  [queue addTask:[CueBlockTask taskWithKey:@(count) priority:1.0f executionBlock:^(CueTask *task) {
-    NSLog(@"Task %d reporting for duty!", count++);
+  [queue addTask:[CueBlockTask taskWithKey:@(i) priority:1.0f executionBlock:^(CueTask *task) {
+    NSLog(@"Task %d reporting for duty!", i);
   }]];
 }
 
