@@ -83,7 +83,7 @@ NSData *valueSecondTime = fileLoader[@"TextFile1.txt"];
 
 ## Contributing
 
-We know there is a lot more that can be done to build great tools so we can all write more performant applications.
+We know there is a lot more that can be done to build great libraries, and concurrency is hard!
 
 We're always happy to receive pull requests!
 
