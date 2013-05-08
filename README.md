@@ -10,8 +10,8 @@ You can get TheKitchenSync in your project within about 5 minutes: [step-by-step
 Cue's thread-safe array and dictionary classes support all of the basic operations of arrays and dictionaries, 
 as well as the new subscript operators:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-CueConcurrentArray *safeArray = [@[@"some", @"items"] cueConcurrent];
-CueConcurrentDictionary *safeDict = [@{ @"key" : @"val" } cueConcurrent];
+CueSafeArray *safeArray = [@[@"some", @"items"] cueConcurrent];
+CueSafeDictionary *safeDict = [@{ @"key" : @"val" } cueConcurrent];
 [self cuePerformBlockInBackground:^{
   [safeArray insertObject:@"more" atIndex:1];
   safeDict[@"key2"] = @"val2";
