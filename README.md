@@ -4,14 +4,12 @@ TheKitchenSync - Concurrency by Cue
 Cue's concurrency library provides you with a set of advanced locks and thread-safe collections, similar to what you might find in Java. 
 
 ## Installation
-You can get TheKitchenSync in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md)
+You can get TheKitchenSync in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md). Then just `#import "TheKitchenSync.h" and you're ready to roll!
 
 ## Collections
 Cue's thread-safe array and dictionary classes support all of the basic operations of arrays and dictionaries, 
 as well as the new subscript operators:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-#import "CueConcurrentCollections.h"
-/*...*/
 CueConcurrentArray *safeArray = [@[@"some", @"items"] cueConcurrent];
 CueConcurrentDictionary *safeDict = [@{ @"key" : @"val" } cueConcurrent];
 BACKGROUND(^{
@@ -27,8 +25,6 @@ Also provided is __CueStackLock__, which uses stack allocation to guarantee unlo
 This helps minimize forgotten unlocks and guarantees correct exception cleanup.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-#import "CueStackLock.h"
-/***/
 - (BOOL)safeLockedQuery {
   CueStackLock(_lock);
   if ([self needsToBreak]) {
@@ -45,9 +41,6 @@ The CueTaskQueue is similar in concept to a dispatch queue, but with more contro
 In addition, it allows the client to set a delegate to implement custom task deduping logic.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-#import "CueTaskQueue.h"
-#import "CueBlockTask.h"
-/***/
 CueTaskQueue *queue = [[CueTaskQueue alloc] initWithName:@"PewPewQueue"];
 queue.threadPriority = 0.3; // relatively low-priority queue.
 [queue startWithThreadCount:1]; // single-thread so you don't have to worry about @synchronizing everything.
@@ -65,9 +58,6 @@ Similar to [Guava MapMaker](http://docs.guava-libraries.googlecode.com/git-histo
 the CueLoadingCache is a thread-safe container that allows programmatic generation of values by key. Simply pass a loader block to it, and it will apply that block to every key it is passed:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-#import "CueLoadingCache.h"
-/*...*/   
-
 // This cache object takes a filename as its key, and returns its NSData from disk.
 CueLoadingCache *fileLoader = [[CueLoadingCache alloc] initWithLoader:^id(id key) {
   NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
