@@ -17,26 +17,9 @@
 #import "CueTaskQueue.h"
 
 /**
- * CueDelegateByPewingPew.
- */
-@protocol CueQueuePewPew <NSObject>
-
-/**
- * Recommend calling twice.
- */
-- (void)pew;
-
-@end
-
-/**
  * Because it absolutely had to be done.
  * This subclass serves no purpose except that it is awesome.
  */
 @interface PewPewCueQueue : CueTaskQueue
-
-/**
- * Moar pewpew.
- */
-@property (assign) NSObject<CueQueuePewPew> *pewDelegate;
 
 @end
