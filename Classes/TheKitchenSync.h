@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Cue. All rights reserved.
 //
 
-#import "Locks/CueFairLock.h"
-#import "Locks/CueReadWriteLock.h"
-#import "Locks/CueStackLock.h"
+#import "CueFairLock.h"
+#import "CueReadWriteLock.h"
+#import "CueStackLock.h"
 
-#import "Collections/CueConcurrentCollections.h"
-#import "Collections/CueLoadingCache.h"
+#import "CueConcurrentCollections.h"
+#import "CueLoadingCache.h"
 
-#import "Threading/CueThreadLocal.h"
+#import "CueThreadLocal.h"
 
-#import "Tasks/CueTaskQueue.h"
-#import "Tasks/CueBlockTask.h"
-#import "Tasks/CueSimpleTaskKey.h"
+#import "CueTaskQueue.h"
+#import "CueBlockTask.h"
+#import "CueSimpleTaskKey.h"
