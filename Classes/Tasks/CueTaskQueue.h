@@ -20,9 +20,9 @@
 @protocol CueTaskQueueDelegate;
 
 /**
- * TODO
- * Documentation forthcoming.
- * For now think of it kind of like GCD queue, but better.
+ * The CueTaskQueue is similar in concept to a dispatch queue, but with more control. 
+ * For one, it explicitly maintains a user-configurable number of dedicated threads for execution. 
+ * In addition, it allows the client to set a delegate to implement custom task deduping logic.
  */
 @interface CueTaskQueue : NSObject
 
