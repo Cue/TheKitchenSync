@@ -12,10 +12,10 @@ as well as the new subscript operators:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 CueConcurrentArray *safeArray = [@[@"some", @"items"] cueConcurrent];
 CueConcurrentDictionary *safeDict = [@{ @"key" : @"val" } cueConcurrent];
-BACKGROUND(^{
+[self cuePerformBlockInBackground:^{
   [safeArray insertObject:@"more" atIndex:1];
   safeDict[@"key2"] = @"val2";
-});
+}];
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Locks
