@@ -1,4 +1,4 @@
-TheKitchenSync - Concurrency Utilities by Cue.
+TheKitchenSync - Concurrency by Cue.
 ===========================
 
 Cue's concurrency library provides you with a basic set of advanced locks and thread-safe collections, similar to what you might find in Java. 
