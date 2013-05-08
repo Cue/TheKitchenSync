@@ -69,6 +69,6 @@ We're always happy to receive pull requests!
 
 ## License
 
-Copyright 2013 The TheKitchenSync Authors.
+Copyright 2013 TheKitchenSync Authors.
 
 Published under The Apache License, see LICENSE
