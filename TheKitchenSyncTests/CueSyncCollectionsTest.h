@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-#import "CueSafeArray.h"
-#import "CueSafeDictionary.h"
+#import "CueTest.h"
 
-@interface NSArray (CueSafeCollections)
-- (CueSafeArray *)cueConcurrent;
-@end
-
-@interface NSDictionary (CueSafeCollections)
-- (CueSafeDictionary *)cueConcurrent;
-@end
+TEST_CLASS(CueSyncCollectionsTest)

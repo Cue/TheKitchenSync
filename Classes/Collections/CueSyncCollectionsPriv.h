@@ -15,10 +15,10 @@
  */
 
 #import "CueStackLock.h"
-#import "CueSafeCollections.h"
+#import "CueSyncCollections.h"
 
-#ifndef TheKitchenSync_CueSafeCollectionsPriv_h
-#define TheKitchenSync_CueSafeCollectionsPriv_h
+#ifndef TheKitchenSync_CueSyncCollectionsPriv_h
+#define TheKitchenSync_CueSyncCollectionsPriv_h
 
 #define READ CueStackLock(_lock);
 #define WRITE CueStackLockWrite(_lock);

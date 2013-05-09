@@ -20,7 +20,7 @@
  * A thread-safe array object composed of
  * an NSMutableArray and a CueReadWriteLock.
  */
-@interface CueSafeArray : NSObject
+@interface CueSyncArray : NSObject
 <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
 
 
@@ -75,11 +75,11 @@
 
 #pragma mark - Filter and Sort
 
-- (CueSafeArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
+- (CueSyncArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 
 - (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 
-- (CueSafeArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
+- (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
 
 - (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
 

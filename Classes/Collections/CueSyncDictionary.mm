@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#import "CueSafeDictionary.h"
-#import "CueSafeCollectionsPriv.h"
+#import "CueSyncDictionary.h"
+#import "CueSyncCollectionsPriv.h"
 #import "CueReadWriteLock.h"
 
-@implementation CueSafeDictionary {
+@implementation CueSyncDictionary {
     NSMutableDictionary *_dict;
     CueReadWriteLock *_lock;
 }
@@ -191,8 +191,8 @@
         return YES;
     }
     READ
-    if ([object isKindOfClass:[CueSafeDictionary class]]) {
-        CueSafeDictionary *other = object;
+    if ([object isKindOfClass:[CueSyncDictionary class]]) {
+        CueSyncDictionary *other = object;
         id lock = other->_lock;
         CueStackLock(lock);
         return [_dict isEqual:other->_dict];

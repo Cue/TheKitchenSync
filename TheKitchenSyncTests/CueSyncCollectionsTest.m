@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-#import "CueSafeCollectionsTest.h"
+#import "CueSyncCollectionsTest.h"
 #import "TheKitchenSync.h"
 
-@implementation CueSafeCollectionsTest
+@implementation CueSyncCollectionsTest
 
 - (void)testDictionaryBasic;
 {
     NSMutableDictionary *dict = [[@{ @"key1" : @"val1", @2 : @YES } mutableCopy] autorelease];
-    CueSafeDictionary *cDict = [dict cueConcurrent];
+    CueSyncDictionary *cDict = [dict cueConcurrent];
     AssertObjectEquals(cDict.unsafeDictionary, dict);
     
     dict[@"key3"] = @"val3";
@@ -32,8 +32,8 @@
 
 - (void)testDictionaryProtocols;
 {
-    CueSafeDictionary *cDict = [@{@"foo" : @"bar", @"tofu" : @"baz"} cueConcurrent];
-    CueSafeDictionary *test = [[cDict copy] autorelease];
+    CueSyncDictionary *cDict = [@{@"foo" : @"bar", @"tofu" : @"baz"} cueConcurrent];
+    CueSyncDictionary *test = [[cDict copy] autorelease];
     AssertObjectEquals(cDict, test);
     
     test = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cDict]];
@@ -43,7 +43,7 @@
 - (void)testArrayBasic;
 {
     NSMutableArray *arr = [[@[ @1, @"two", @3.14] mutableCopy] autorelease];
-    CueSafeArray *cArr = [arr cueConcurrent];
+    CueSyncArray *cArr = [arr cueConcurrent];
     AssertObjectEquals(cArr.unsafeArray, arr);
     
     [arr addObject:@"4"];
@@ -57,8 +57,8 @@
 
 - (void)testArrayProtocols;
 {
-    CueSafeArray *cArr = [@[@"foo", @"bar", @"tofu", @"baz"] cueConcurrent];
-    CueSafeArray *test = [[cArr copy] autorelease];
+    CueSyncArray *cArr = [@[@"foo", @"bar", @"tofu", @"baz"] cueConcurrent];
+    CueSyncArray *test = [[cArr copy] autorelease];
     AssertObjectEquals(cArr, test);
     
     test = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cArr]];
