@@ -160,7 +160,7 @@
 - (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
     WRITE
-    [_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]];
+    [_array filterUsingPredicate:[NSPredicate predicateWithBlock:block]];
 }
 
 - (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;

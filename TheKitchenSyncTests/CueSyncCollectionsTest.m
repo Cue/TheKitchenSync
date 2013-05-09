@@ -65,4 +65,26 @@
     AssertObjectEquals(cArr, test);
 }
 
+- (void)testSetBasic;
+{
+    NSMutableSet *set = [NSMutableSet setWithArray:@[ @1, @"two", @3.14]];
+    CueSyncSet *cSet = [set cueConcurrent];
+    AssertObjectEquals(cSet.unsafeSet, set);
+    
+    [set addObject:@"4"];
+    [cSet addObject:@"4"];
+    AssertObjectEquals(cSet.unsafeSet, set);
+}
+
+- (void)testSetProtocols;
+{
+    NSSet *base = [NSSet setWithArray:@[@"foo", @"bar", @"tofu", @"baz"]];
+    CueSyncSet *cSet = [base cueConcurrent];
+    CueSyncSet *test = [[cSet copy] autorelease];
+    AssertObjectEquals(cSet, test);
+    
+    test = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cSet]];
+    AssertObjectEquals(cSet, test);
+}
+
 @end

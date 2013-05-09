@@ -13,6 +13,7 @@
 		901D9111173B27BB009DE62B /* CueSyncCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D910C173B27BB009DE62B /* CueSyncCollections.m */; };
 		901D9112173B27BB009DE62B /* CueSyncDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D910F173B27BB009DE62B /* CueSyncDictionary.mm */; };
 		901D9115173B27CA009DE62B /* CueSyncCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D9114173B27CA009DE62B /* CueSyncCollectionsTest.m */; };
+		901D919B173B5910009DE62B /* CueSyncSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D919A173B5910009DE62B /* CueSyncSet.mm */; };
 		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
@@ -74,6 +75,8 @@
 		901D910F173B27BB009DE62B /* CueSyncDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueSyncDictionary.mm; sourceTree = "<group>"; };
 		901D9113173B27CA009DE62B /* CueSyncCollectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueSyncCollectionsTest.h; path = TheKitchenSyncTests/CueSyncCollectionsTest.h; sourceTree = SOURCE_ROOT; };
 		901D9114173B27CA009DE62B /* CueSyncCollectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSyncCollectionsTest.m; path = TheKitchenSyncTests/CueSyncCollectionsTest.m; sourceTree = SOURCE_ROOT; };
+		901D9199173B5910009DE62B /* CueSyncSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSyncSet.h; sourceTree = "<group>"; };
+		901D919A173B5910009DE62B /* CueSyncSet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CueSyncSet.mm; sourceTree = "<group>"; };
 		9085986917359E3E009F7E56 /* CueFairLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueFairLockTest.h; path = TheKitchenSyncTests/CueFairLockTest.h; sourceTree = SOURCE_ROOT; };
 		9085986A17359E3E009F7E56 /* CueFairLockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueFairLockTest.m; path = TheKitchenSyncTests/CueFairLockTest.m; sourceTree = SOURCE_ROOT; };
 		9085986B17359E3E009F7E56 /* CueReadWriteLockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueReadWriteLockTest.h; path = TheKitchenSyncTests/CueReadWriteLockTest.h; sourceTree = SOURCE_ROOT; };
@@ -249,13 +252,15 @@
 		90C1DBEE1739D53D00521E5E /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				901D9109173B27BB009DE62B /* CueSyncArray.h */,
-				901D910A173B27BB009DE62B /* CueSyncArray.mm */,
 				901D910B173B27BB009DE62B /* CueSyncCollections.h */,
 				901D910C173B27BB009DE62B /* CueSyncCollections.m */,
 				901D910D173B27BB009DE62B /* CueSyncCollectionsPriv.h */,
+				901D9109173B27BB009DE62B /* CueSyncArray.h */,
+				901D910A173B27BB009DE62B /* CueSyncArray.mm */,
 				901D910E173B27BB009DE62B /* CueSyncDictionary.h */,
 				901D910F173B27BB009DE62B /* CueSyncDictionary.mm */,
+				901D9199173B5910009DE62B /* CueSyncSet.h */,
+				901D919A173B5910009DE62B /* CueSyncSet.mm */,
 				90C1DBF61739D53D00521E5E /* CueLoadingCache.h */,
 				90C1DBF71739D53D00521E5E /* CueLoadingCache.mm */,
 				90C1DBF81739D53D00521E5E /* CueValueLoader.h */,
@@ -435,6 +440,7 @@
 				901D9111173B27BB009DE62B /* CueSyncCollections.m in Sources */,
 				901D9112173B27BB009DE62B /* CueSyncDictionary.mm in Sources */,
 				901D9115173B27CA009DE62B /* CueSyncCollectionsTest.m in Sources */,
+				901D919B173B5910009DE62B /* CueSyncSet.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

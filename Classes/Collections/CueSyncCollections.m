@@ -33,3 +33,12 @@
 }
 
 @end
+
+@implementation NSSet (CueSyncCollections)
+
+- (CueSyncSet *)cueConcurrent;
+{
+    return [CueSyncSet from:self];
+}
+
+@end
