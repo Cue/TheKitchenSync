@@ -17,10 +17,14 @@
 #import "CueStackLock.h"
 #import "CueSyncCollections.h"
 
+#include <mutex>
+
 #ifndef TheKitchenSync_CueSyncCollectionsPriv_h
 #define TheKitchenSync_CueSyncCollectionsPriv_h
 
-#define READ CueStackLock(_lock);
-#define WRITE CueStackLockWrite(_lock);
+// Used to use CueReadWriteLock, until we actually profiled it.
+// For heavy use it's orders of magnitude faster to use a std::mutex.
+#define READ CueStackLockStd(_lock);
+#define WRITE READ
 
 #endif

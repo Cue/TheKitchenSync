@@ -8,11 +8,10 @@
 
 #import "CueSyncSet.h"
 #import "CueSyncCollectionsPriv.h"
-#import "CueReadWriteLock.h"
 
 @implementation CueSyncSet {
     NSMutableSet *_set;
-    CueReadWriteLock *_lock;
+    std::mutex _lock;
 }
 
 
@@ -35,7 +34,6 @@
 {
     self = [super init];
     if (self) {
-        _lock  = [[CueReadWriteLock alloc] init];
         _set = [set mutableCopy];
     }
     return self;
@@ -135,22 +133,22 @@
 
 - (void)lock;
 {
-    [self lockForRead];
+    _lock.lock();
 }
 
 - (void)lockForRead;
 {
-    [_lock lockForRead];
+    _lock.lock();
 }
 
 - (void)lockForWrite;
 {
-    [_lock lockForWrite];
+    _lock.lock();
 }
 
 - (void)unlock;
 {
-    [_lock unlock];
+    _lock.unlock();
 }
 
 
@@ -199,8 +197,8 @@
     READ
     if ([object isKindOfClass:[CueSyncSet class]]) {
         CueSyncSet *other = object;
-        id lock = other->_lock;
-        CueStackLock(lock);
+        std::mutex &lock = other->_lock;
+        CueStackLockStd(lock);
         return [_set isEqual:other->_set];
     }
     return NO;
@@ -229,7 +227,6 @@
 - (void)dealloc;
 {
     [_set release];
-    [_lock release];
     [super dealloc];
 }
 @end

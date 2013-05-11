@@ -62,7 +62,7 @@
 - (void)lockForRead;
 {
     [_fairLock lock];
-    NSLock *thisLock = [[[NSLock alloc] init] autorelease];
+    NSLock *thisLock = [[NSLock alloc] init];
     if (_primaryReader) {
         @synchronized (_activeReaders) {
             [_activeReaders addObject:thisLock];
@@ -72,12 +72,13 @@
     }
     [thisLock lock];
     [_readLocks set:thisLock];
+    [thisLock release];
     [_fairLock unlock];
 }
 
 - (void)unlockForRead;
 {
-    NSLock *thisLock = [[[_readLocks get] retain] autorelease];
+    NSLock *thisLock = [[_readLocks get] retain];
     @synchronized (_activeReaders) {
         if (thisLock == _primaryReader) {
             [_primaryReader release];
@@ -90,8 +91,8 @@
         }
     }
     [_readLocks remove];
-
     [thisLock unlock];
+    [thisLock release];
 }
 
 - (void)lock;

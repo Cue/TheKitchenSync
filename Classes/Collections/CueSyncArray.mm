@@ -16,11 +16,10 @@
 
 #import "CueSyncArray.h"
 #import "CueSyncCollectionsPriv.h"
-#import "CueReadWriteLock.h"
 
 @implementation CueSyncArray {
     NSMutableArray *_array;
-    CueReadWriteLock *_lock;
+    std::mutex _lock;
 }
 
 
@@ -43,7 +42,6 @@
 {
     self = [super init];
     if (self) {
-        _lock = [[CueReadWriteLock alloc] init];
         _array = [array mutableCopy];
     }
     return self;
@@ -180,22 +178,22 @@
 
 - (void)lock;
 {
-    [self lockForRead];
+    _lock.lock();
 }
 
 - (void)lockForRead;
 {
-    [_lock lockForRead];
+    _lock.lock();
 }
 
 - (void)lockForWrite;
 {
-    [_lock lockForWrite];
+    _lock.lock();
 }
 
 - (void)unlock;
 {
-    [_lock unlock];
+    _lock.unlock();
 }
 
 
@@ -244,8 +242,8 @@
     READ
     if ([object isKindOfClass:[CueSyncArray class]]) {
         CueSyncArray *other = object;
-        id lock = other->_lock;
-        CueStackLock(lock);
+        std::mutex &lock = other->_lock;
+        CueStackLockStd(lock);
         return [_array isEqual:other->_array];
     }    
     return NO;
@@ -274,7 +272,6 @@
 - (void)dealloc;
 {
     [_array release];
-    [_lock release];
     [super dealloc];
 }
 

@@ -33,8 +33,17 @@ CueStackLockObject __stackLock_##__lockable__(__lockable__, false, true)
 #define CueStackLockNoRelock(__lockable__) \
 CueStackLockObject __stackLock_##__lockable__(__lockable__, true)
 
-
 #ifdef __cplusplus
+
+// Indicates C++11 support, can use lock_guard
+#if __cplusplus > 199711L
+
+#import <mutex>
+
+#define CueStackLockStd(__lockable__) \
+std::lock_guard<std::mutex> __stackLock_##__lockable__(__lockable__)
+
+#endif
 
 /**
  * This object, when instantiated with an <NSLocking> object,
