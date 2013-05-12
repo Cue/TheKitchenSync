@@ -18,10 +18,12 @@
 
 /**
  * A thread-safe dictionary object composed of
- * an NSMutableDictionary and a CueReadWriteLock.
+ * an NSMutableDictionary and a lock.
+ *
+ * Should only be iterated using fast-enumeration. i++ is not synchronized.
  */
 @interface CueSyncDictionary : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
+<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 
 
 #pragma mark - Static Factory
@@ -63,13 +65,6 @@
 - (void)removeObjectForKey:(id)aKey;
 
 - (void)removeAllObjects;
-
-
-#pragma mark - Locking
-
-- (void)lockForRead;
-
-- (void)lockForWrite;
 
 
 #pragma mark - Unsafe

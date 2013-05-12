@@ -65,6 +65,17 @@
     AssertObjectEquals(cArr, test);
 }
 
+- (void)testArrayEnumeration;
+{
+    CueSyncArray *cArr = [@[ @0, @1, @2 ] cueConcurrent];
+    int i = 0;
+    for (NSNumber *num in cArr) {
+        AssertObjectEquals(@(i), num);
+        cArr[i] = @"Mutated Safely";
+        i++;
+    }
+}
+
 - (void)testSetBasic;
 {
     NSMutableSet *set = [NSMutableSet setWithArray:@[ @1, @"two", @3.14]];

@@ -18,10 +18,12 @@
 
 /**
  * A thread-safe array object composed of
- * an NSMutableArray and a CueReadWriteLock.
+ * an NSMutableArray and a lock.
+ *
+ * Should only be iterated using fast-enumeration. i++ is not synchronized.
  */
 @interface CueSyncArray : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
+<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 
 
 #pragma mark - Static Factory
@@ -82,13 +84,6 @@
 - (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
 
 - (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
-
-
-#pragma mark - Locking
-
-- (void)lockForRead;
-
-- (void)lockForWrite;
 
 
 #pragma mark - Unsafe

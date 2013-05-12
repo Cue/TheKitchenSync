@@ -174,29 +174,6 @@
 }
 
 
-#pragma mark - Locking
-
-- (void)lock;
-{
-    _lock.lock();
-}
-
-- (void)lockForRead;
-{
-    _lock.lock();
-}
-
-- (void)lockForWrite;
-{
-    _lock.lock();
-}
-
-- (void)unlock;
-{
-    _lock.unlock();
-}
-
-
 #pragma mark - Unsafe
 
 - (NSMutableArray *)unsafeArray;

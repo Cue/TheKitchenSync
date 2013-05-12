@@ -12,10 +12,12 @@
 
 /**
  * A thread-safe set object composed of
- * an NSMutableSet and a CueReadWriteLock.
+ * an NSMutableSet and a lock.
+ *
+ * Should only be iterated using fast-enumeration. i++ is not synchronized.
  */
 @interface CueSyncSet : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying, NSLocking>
+<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 
 
 #pragma mark - Static Factory
@@ -64,13 +66,6 @@
 - (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 
 - (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
-
-
-#pragma mark - Locking
-
-- (void)lockForRead;
-
-- (void)lockForWrite;
 
 
 #pragma mark - Unsafe
