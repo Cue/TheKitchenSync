@@ -16,7 +16,20 @@ CueSyncDictionary *syncDict = [@{ @"key" : @"val" } cueConcurrent];
   [syncArray insertObject:@"more" atIndex:1];
   syncDict[@"key2"] = @"val2";
 }];
+
+int i = 0;
+
+// We cannot guarantee safety during normal for-loops, but foreach loops are safe.
+for (id obj in syncArray) {
+  // Since we copy the array before enumerating, you can even mutate mid-loop!
+  syncArray[i++] = @"I've been mutated!";
+}
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Note:** We have taken pains to keep the interface minimal for these objects, so the locking logic is never exposed.
+One consequence of this is that we can't guarantee safety during a standard `for` loop. We do, however guarantee safety
+during a fast-enumeration loop via copying. This allows you to 
 
 ## Locks
 For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__.
