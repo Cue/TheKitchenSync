@@ -39,7 +39,7 @@
 
 - (BOOL)isEqual:(id)object;
 {
-    return [super isMemberOfClass:[CueThreadLocalKey class]] && _value == ((CueThreadLocalKey *)object)->_value;
+    return [object isMemberOfClass:[CueThreadLocalKey class]] && _value == ((CueThreadLocalKey *)object)->_value;
 }
 
 - (id)copyWithZone:(NSZone *)zone;
