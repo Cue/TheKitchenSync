@@ -1,7 +1,6 @@
-TheKitchenSync - Concurrency by Cue
-===========================
+# A Tool Belt for iOS Concurrency
 
-Cue's concurrency library provides you with a set of advanced locks and thread-safe collections, similar to what you might find in Java. 
+Cue's iOS concurrency library, _TheKitchenSync_, provides you with a set of advanced locks and thread-safe collections, similar to what you might find in Java. 
 
 ## Installation
 You can get TheKitchenSync in your project within about 5 minutes: [step-by-step installation instructions](/Documentation/INSTALL.md). Then just `#import "TheKitchenSync.h"` and you're ready to roll!
