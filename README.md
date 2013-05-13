@@ -26,27 +26,6 @@ for (id obj in syncArray) {
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## Locks
-For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__, 
-although we will warn you that in benchmarking, CueReadWriteLock proved to be far slower than normal or recursive locks. 
-We are working on improving it, but in the meantime think hard about whether you want to incur this overhead.
-
-Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
-This helps minimize forgotten unlocks and guarantees correct exception cleanup.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
-- (BOOL)safeLockedQuery {
-  // Guarantees lock until scope ends.
-  CueStackLock(_lock);
-  if ([self needsToBreak]) {
-    return NO;
-  }
-  return [self potentialThrowQuery];  
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Make sure you compile as Objective C++ when using CueStackLock. 
-Generally this means changing your file extension from .m to .mm
-
 ## CueTaskQueue
 The CueTaskQueue is similar in concept to a dispatch queue, but with more control. For one, it explicitly maintains a user-configurable number of dedicated threads for execution.
 In addition, it allows the client to set a delegate to implement custom task deduping logic.
@@ -87,6 +66,27 @@ NSData *valueFirstTime = fileLoader[@"TextFile1.txt"];
 // Loads from cache the second time.
 NSData *valueSecondTime = fileLoader[@"TextFile1.txt"];
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## Locks
+For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__, 
+although we will warn you that in benchmarking, CueReadWriteLock proved to be far slower than normal or recursive locks. 
+We are working on improving it, but in the meantime think hard about whether you want to incur this overhead.
+
+Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
+This helps minimize forgotten unlocks and guarantees correct exception cleanup.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
+- (BOOL)safeLockedQuery {
+  // Guarantees lock until scope ends.
+  CueStackLock(_lock);
+  if ([self needsToBreak]) {
+    return NO;
+  }
+  return [self potentialThrowQuery];  
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Make sure you compile as Objective C++ when using CueStackLock. 
+Generally this means changing your file extension from .m to .mm
 
 ## Contributing
 
