@@ -20,6 +20,9 @@
 
 /**
  * Cue Read/Write Lock.
+ *
+ * WARNING: In benchmarking, CueReadWriteLock proved to be far slower than normal or recursive locks. 
+ * We are working on improving it, but in the meantime think hard about whether you want to incur this overhead.
  */
 @interface CueReadWriteLock : NSObject <NSLocking, CueTestableLock>
 
