@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "Cue-TheKitchenSync"
+  s.name         = "TheKitchenSync"
   s.version      = "1.0.0"
   s.summary      = "From Cue: A Tool Belt for iOS Concurrency."
   s.homepage     = "https://www.cueup.com"
