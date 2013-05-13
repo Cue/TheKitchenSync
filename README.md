@@ -28,7 +28,9 @@ for (id obj in syncArray) {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Locks
-For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__.
+For more complex locking schemes, TheKitchenSync provides __CueFairLock__, as well as a __CueReadWriteLock__, 
+although we will warn you that in benchmarking, CueReadWriteLock proved to be far slower than normal or recursive locks. 
+We are working on improving it, but in the meantime think hard about whether you want to incur this overhead.
 
 Also provided is __CueStackLock__, which uses stack allocation to guarantee unlocking when execution leaves the current scope.
 This helps minimize forgotten unlocks and guarantees correct exception cleanup.
