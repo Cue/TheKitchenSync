@@ -22,6 +22,11 @@
     return [[[CueSyncSet alloc] initWithSet:set] autorelease];
 }
 
++ (instancetype)fromArray:(NSArray *)array;
+{
+    return [[[CueSyncSet alloc] initWithArray:array] autorelease];
+}
+
 
 #pragma mark - Init
 

@@ -19,6 +19,19 @@
 
 @implementation CueSyncCollectionsTest
 
+
+#pragma mark - Dictionary
+
+- (void)testDictionaryIsEqual;
+{
+    CueSyncDictionary *eq1 = [@{ @"key" : @"val" } cueConcurrent];
+    CueSyncDictionary *eq2 = [@{ @"key" : @"val" } cueConcurrent];
+    CueSyncDictionary *neq = [@{ @"key" : @"var" } cueConcurrent];
+    
+    AssertObjectEquals(eq1, eq2);
+    AssertObjectNotEquals(eq1, neq);
+}
+
 - (void)testDictionaryBasic;
 {
     NSMutableDictionary *dict = [[@{ @"key1" : @"val1", @2 : @YES } mutableCopy] autorelease];
@@ -38,6 +51,19 @@
     
     test = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:cDict]];
     AssertObjectEquals(cDict, test);
+}
+
+
+#pragma mark - Array
+
+- (void)testArrayIsEqual;
+{
+    CueSyncArray *eq1 = [@[ @"val" ] cueConcurrent];
+    CueSyncArray *eq2 = [@[ @"val" ] cueConcurrent];
+    CueSyncArray *neq = [@[ @"var" ] cueConcurrent];
+    
+    AssertObjectEquals(eq1, eq2);
+    AssertObjectNotEquals(eq1, neq);    
 }
 
 - (void)testArrayBasic;
@@ -74,6 +100,19 @@
         cArr[i] = @"Mutated Safely";
         i++;
     }
+}
+
+
+#pragma mark - Set
+
+- (void)testSetIsEqual;
+{
+    CueSyncSet *eq1 = [@[ @"val" ] cueConcurrentSet];
+    CueSyncSet *eq2 = [@[ @"val" ] cueConcurrentSet];
+    CueSyncSet *neq = [@[ @"var" ] cueConcurrentSet];
+    
+    AssertObjectEquals(eq1, eq2);
+    AssertObjectNotEquals(eq1, neq);
 }
 
 - (void)testSetBasic;

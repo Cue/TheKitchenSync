@@ -24,6 +24,8 @@
 
 + (instancetype)from:(NSSet *)set;
 
++ (instancetype)fromArray:(NSArray *)array;
+
 
 #pragma mark - Init
 

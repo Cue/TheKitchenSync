@@ -16,8 +16,14 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-#define AssertObjectEquals(expected, actual) STAssertEqualObjects(expected, actual, @"should be equal")
-#define AssertCount(expected, collection, message) STAssertEquals((NSUInteger) expected, [collection count], message)
+#define AssertObjectEquals(expected, actual) \
+STAssertEqualObjects(expected, actual, @"should be equal")
+
+#define AssertObjectNotEquals(obj1, obj2) \
+STAssertFalse(([obj1 isEqual:obj2] || [obj2 isEqual:obj1]), @"objects should not be equal")
+
+#define AssertCount(expected, collection, message) \
+STAssertEquals((NSUInteger) expected, [collection count], message)
 
 /**
  * These two macros require UIImage+CueUI.h

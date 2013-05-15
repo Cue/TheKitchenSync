@@ -20,6 +20,7 @@
 
 @interface NSArray (CueSyncCollections)
 - (CueSyncArray *)cueConcurrent;
+- (CueSyncSet *)cueConcurrentSet;
 @end
 
 @interface NSDictionary (CueSyncCollections)

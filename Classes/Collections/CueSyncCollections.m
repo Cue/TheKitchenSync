@@ -23,6 +23,11 @@
     return [CueSyncArray from:self];
 }
 
+- (CueSyncSet *)cueConcurrentSet;
+{
+    return [CueSyncSet fromArray:self];
+}
+
 @end
 
 @implementation NSDictionary (CueSyncCollections)
