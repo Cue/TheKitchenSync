@@ -156,11 +156,16 @@
 }
 
 
-#pragma mark - Unsafe
+#pragma mark - Array
 
 - (NSMutableArray *)unsafeArray;
 {
     return _array;
+}
+
+- (NSArray *)array;
+{
+    READ_ID([[_array copy] autorelease]);
 }
 
 

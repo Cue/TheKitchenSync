@@ -123,11 +123,16 @@
 }
 
 
-#pragma mark - Unsafe
+#pragma mark - Set
 
 - (NSMutableSet *)unsafeSet;
 {
     return _set;
+}
+
+- (NSSet *)set;
+{
+    READ_ID([[_set copy] autorelease]);
 }
 
 

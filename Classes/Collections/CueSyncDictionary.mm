@@ -81,11 +81,6 @@
     READ_ID(_dict.description);
 }
 
-- (NSDictionary *)dictionary;
-{
-    READ_ID([[_dict copy] autorelease]);
-}
-
 
 #pragma mark - Add
 
@@ -125,6 +120,11 @@
     return _dict;
 }
 
+- (NSDictionary *)dictionary;
+{
+    READ_ID([[_dict copy] autorelease]);
+}
+
 
 #pragma mark - NSCoding
 
@@ -154,9 +154,7 @@
 
 - (void)withDictionary:(void (^)(NSDictionary *dictionary))block;
 {
-    READ(
-        if (block) { block(_dict); }
-    );
+    READ(if (block) { block(_dict); });
 }
 
 - (BOOL)isEqual:(id)object;

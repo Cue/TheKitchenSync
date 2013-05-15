@@ -17,25 +17,10 @@
 #import <Foundation/Foundation.h>
 
 /**
- * A thread-safe dictionary object composed of
- * an NSMutableDictionary and a lock.
- *
- * Should only be iterated using fast-enumeration. i++ is not synchronized.
+ * Interface that CueSyncDictionary shares with NSDictionary
  */
-@interface CueSyncDictionary : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
-
-
-#pragma mark - Static Factory
-
-+ (instancetype)from:(NSDictionary *)dictionary;
-
-
-#pragma mark - Init
-
-- (id)init;
-
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+@protocol ICueDictionary <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
+@required
 
 
 #pragma mark - Query
@@ -49,6 +34,16 @@
 - (id)objectForKey:(id)aKey;
 
 - (id)objectForKeyedSubscript:(id)key;
+
+@end
+typedef NSObject<ICueDictionary> CueDictionary;
+
+
+/**
+ * Interface that CueSyncDictionary shares with NSMutableDictionary
+ */
+@protocol ICueMutableDictionary <ICueDictionary>
+@required
 
 
 #pragma mark - Add
@@ -66,10 +61,35 @@
 
 - (void)removeAllObjects;
 
+@end
+typedef NSObject<ICueMutableDictionary> CueMutableDictionary;
 
-#pragma mark - Unsafe
+
+/**
+ * A thread-safe dictionary object composed of
+ * an NSMutableDictionary and a lock.
+ *
+ * Should only be iterated using fast-enumeration. i++ is not synchronized.
+ */
+@interface CueSyncDictionary : NSObject <ICueMutableDictionary>
+
+
+#pragma mark - Static Factory
+
++ (instancetype)from:(NSDictionary *)dictionary;
+
+
+#pragma mark - Init
+
+- (id)init;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
+
+#pragma mark - Dictionary
 
 - (NSMutableDictionary *)unsafeDictionary;
 
+- (NSDictionary *)dictionary;
 
 @end

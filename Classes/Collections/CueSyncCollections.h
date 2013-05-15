@@ -18,15 +18,26 @@
 #import "CueSyncDictionary.h"
 #import "CueSyncSet.h"
 
-@interface NSArray (CueSyncCollections)
+@interface NSArray (CueSyncCollections) <ICueArray>
 - (CueSyncArray *)cueConcurrent;
 - (CueSyncSet *)cueConcurrentSet;
 @end
 
-@interface NSDictionary (CueSyncCollections)
+@interface NSMutableArray (CueSyncCollections) <ICueMutableArray>
+@end
+
+
+@interface NSDictionary (CueSyncCollections) <ICueDictionary>
 - (CueSyncDictionary *)cueConcurrent;
 @end
 
-@interface NSSet (CueSyncCollections)
+@interface NSMutableDictionary (CueSyncCollections) <ICueMutableDictionary>
+@end
+
+
+@interface NSSet (CueSyncCollections) <ICueSet>
 - (CueSyncSet *)cueConcurrent;
+@end
+
+@interface NSMutableSet (CueSyncCollections) <ICueMutableSet>
 @end

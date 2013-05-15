@@ -16,26 +16,12 @@
 
 #import <Foundation/Foundation.h>
 
+
 /**
- * A thread-safe array object composed of
- * an NSMutableArray and a lock.
- *
- * Should only be iterated using fast-enumeration. i++ is not synchronized.
+ * Interface that CueSyncArray shares with NSArray
  */
-@interface CueSyncArray : NSObject
-<NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
-
-
-#pragma mark - Static Factory
-
-+ (instancetype)from:(NSArray *)array;
-
-
-#pragma mark - Init
-
-- (id)init;
-
-- (id)initWithArray:(NSArray *)array;
+@protocol ICueArray <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
+@required
 
 
 #pragma mark - Query
@@ -49,6 +35,16 @@
 - (id)objectAtIndex:(NSUInteger)index;
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
+
+@end
+typedef NSObject<ICueArray> CueArray;
+
+
+/**
+ * Interface that CueSyncArray shares with NSMutableArray
+ */
+@protocol ICueMutableArray <ICueArray>
+@required
 
 
 #pragma mark - Add
@@ -74,6 +70,29 @@
 
 - (void)removeAllObjects;
 
+@end
+typedef NSObject<ICueMutableArray> CueMutableArray;
+
+/**
+ * A thread-safe array object composed of
+ * an NSMutableArray and a lock.
+ *
+ * Should only be iterated using fast-enumeration. i++ is not synchronized.
+ */
+@interface CueSyncArray : NSObject <ICueMutableArray>
+
+
+#pragma mark - Static Factory
+
++ (instancetype)from:(NSArray *)array;
+
+
+#pragma mark - Init
+
+- (id)init;
+
+- (id)initWithArray:(NSArray *)array;
+
 
 #pragma mark - Filter and Sort
 
@@ -86,8 +105,10 @@
 - (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
 
 
-#pragma mark - Unsafe
+#pragma mark - Array
 
 - (NSMutableArray *)unsafeArray;
+
+- (NSArray *)array;
 
 @end
