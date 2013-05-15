@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		900BE43A16F6600300686BF9 /* libTheKitchenSync.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BE42116F6600300686BF9 /* libTheKitchenSync.a */; };
 		901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D90FA173ADDE0009DE62B /* CueThreadPerformAdditions.m */; };
-		901D9110173B27BB009DE62B /* CueSyncArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D910A173B27BB009DE62B /* CueSyncArray.mm */; };
-		901D9111173B27BB009DE62B /* CueSyncCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D910C173B27BB009DE62B /* CueSyncCollections.m */; };
-		901D9112173B27BB009DE62B /* CueSyncDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D910F173B27BB009DE62B /* CueSyncDictionary.mm */; };
 		901D9115173B27CA009DE62B /* CueSyncCollectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D9114173B27CA009DE62B /* CueSyncCollectionsTest.m */; };
-		901D919B173B5910009DE62B /* CueSyncSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D919A173B5910009DE62B /* CueSyncSet.mm */; };
+		902C1B191744454E00D97586 /* CueSyncDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D910F173B27BB009DE62B /* CueSyncDictionary.mm */; };
+		902C1B1A1744455100D97586 /* CueSyncSet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D919A173B5910009DE62B /* CueSyncSet.mm */; };
+		902C1B1B1744456300D97586 /* CueSyncCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 901D910C173B27BB009DE62B /* CueSyncCollections.m */; };
+		902C1B1C1744456300D97586 /* CueSyncArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 901D910A173B27BB009DE62B /* CueSyncArray.mm */; };
 		9085986F17359E3E009F7E56 /* CueFairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986A17359E3E009F7E56 /* CueFairLockTest.m */; };
 		9085987017359E3E009F7E56 /* CueReadWriteLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986C17359E3E009F7E56 /* CueReadWriteLockTest.m */; };
 		9085987117359E3E009F7E56 /* CueThreadLocalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085986E17359E3E009F7E56 /* CueThreadLocalTest.m */; };
@@ -421,6 +421,10 @@
 				90C1DC1D1739D53E00521E5E /* PewPewCueQueue.m in Sources */,
 				90C1DC1E1739D53E00521E5E /* CueThreadLocal.m in Sources */,
 				901D90FB173ADDE0009DE62B /* CueThreadPerformAdditions.m in Sources */,
+				902C1B191744454E00D97586 /* CueSyncDictionary.mm in Sources */,
+				902C1B1A1744455100D97586 /* CueSyncSet.mm in Sources */,
+				902C1B1B1744456300D97586 /* CueSyncCollections.m in Sources */,
+				902C1B1C1744456300D97586 /* CueSyncArray.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,11 +440,7 @@
 				908E903E17398BA4005B5483 /* CueLoadingCacheTest.m in Sources */,
 				90C1DC231739D54C00521E5E /* CueTaskQueueTests.m in Sources */,
 				90C1DC241739D54C00521E5E /* CueThreadSteps.m in Sources */,
-				901D9110173B27BB009DE62B /* CueSyncArray.mm in Sources */,
-				901D9111173B27BB009DE62B /* CueSyncCollections.m in Sources */,
-				901D9112173B27BB009DE62B /* CueSyncDictionary.mm in Sources */,
 				901D9115173B27CA009DE62B /* CueSyncCollectionsTest.m in Sources */,
-				901D919B173B5910009DE62B /* CueSyncSet.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
