@@ -20,7 +20,7 @@
 
 @implementation CueSyncDictionary {
     NSMutableDictionary *_dict;
-    std::mutex _lock;
+    dispatch_queue_t _queue;
 }
 
 
@@ -44,47 +44,46 @@
     self = [super init];
     if (self) {
         _dict = [dictionary mutableCopy];
+        _queue = dispatch_queue_create("com.cueup.CueSyncDictionary", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
-
 
 #pragma mark - Query
 
 - (NSUInteger)count;
 {
-    READ
-    return _dict.count;
+    READ_TYPE(NSUInteger, _dict.count);
 }
 
 - (NSArray *)allKeys;
 {
-    READ
-    return _dict.allKeys;
+    READ_ID(_dict.allKeys);
 }
 
 - (NSArray *)allValues;
 {
-    READ
-    return _dict.allValues;
+    READ_ID(_dict.allValues);
 }
 
 - (id)objectForKey:(id)aKey;
 {
-    READ
-    return [[[_dict objectForKey:aKey] retain] autorelease];
+    READ_ID([[[_dict objectForKey:aKey] retain] autorelease]);
 }
 
 - (id)objectForKeyedSubscript:(id)key;
 {
-    READ
-    return [[[_dict objectForKeyedSubscript:key] retain] autorelease];
+    READ_ID([[[_dict objectForKeyedSubscript:key] retain] autorelease]);
 }
 
 - (NSString *)description;
 {
-    READ
-    return [_dict description];
+    READ_ID(_dict.description);
+}
+
+- (NSDictionary *)dictionary;
+{
+    READ_ID([[_dict copy] autorelease]);
 }
 
 
@@ -92,20 +91,17 @@
 
 - (void)setObject:(id)anObject forKey:(id<NSCopying>)aKey;
 {
-    WRITE
-    [_dict setObject:anObject forKey:aKey];
+    WRITE([_dict setObject:anObject forKey:aKey]);
 }
 
 - (void)setObject:(id)object forKeyedSubscript:(id<NSCopying>)aKey;
 {
-    WRITE
-    [_dict setObject:object forKeyedSubscript:aKey];
+    WRITE([_dict setObject:object forKeyedSubscript:aKey]);
 }
 
 - (void)addEntriesFromDictionary:(NSDictionary *)otherDictionary;
 {
-    WRITE
-    [_dict addEntriesFromDictionary:otherDictionary];
+    WRITE([_dict addEntriesFromDictionary:otherDictionary]);
 }
 
 
@@ -113,14 +109,12 @@
 
 - (void)removeObjectForKey:(id)aKey;
 {
-    WRITE
-    [_dict removeObjectForKey:aKey];
+    WRITE([_dict removeObjectForKey:aKey]);
 }
 
 - (void)removeAllObjects;
 {
-    WRITE
-    [_dict removeAllObjects];
+    WRITE([_dict removeAllObjects]);
 }
 
 
@@ -142,8 +136,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 {
-    READ
-    [aCoder encodeObject:_dict forKey:@"dict"];
+    READ([aCoder encodeObject:_dict forKey:@"dict"]);
 }
 
 
@@ -156,9 +149,14 @@
 
 - (id)mutableCopyWithZone:(NSZone *)zone;
 {
-    id retval = [self.class allocWithZone:zone];
-    READ
-    return [retval initWithDictionary:_dict];
+    READ_ID([[self.class allocWithZone:zone] initWithDictionary:_dict]);
+}
+
+- (void)withDictionary:(void (^)(NSDictionary *dictionary))block;
+{
+    READ(
+        if (block) { block(_dict); }
+    );
 }
 
 - (BOOL)isEqual:(id)object;
@@ -166,12 +164,15 @@
     if (object == self) {
         return YES;
     }
-    READ
     if ([object isKindOfClass:[CueSyncDictionary class]]) {
         CueSyncDictionary *other = object;
-        std::mutex &lock = other->_lock;
-        CueStackLockStd(lock);
-        return [_dict isEqual:other->_dict];
+        __block BOOL retval = NO;
+        [other withDictionary:^(NSDictionary *dictionary) {
+            [self withDictionary:^(NSDictionary *dictionary_) {
+                retval = [dictionary isEqual:dictionary_];
+            }];
+        }];
+        return retval;
     }
     return NO;
 }
@@ -181,8 +182,7 @@
 // with isEqual, so we offset by one.
 - (NSUInteger)hash;
 {
-    READ
-    return _dict.hash + 1;
+    READ_TYPE(NSUInteger, _dict.hash + 1);
 }
 
 #pragma mark - NSFastEnumeration
@@ -191,14 +191,13 @@
                                   objects:(id *)stackbuf
                                     count:(NSUInteger)len;
 {
-    READ
-    NSDictionary *safeCopy = [[_dict copy] autorelease];
-    return [safeCopy countByEnumeratingWithState:state objects:stackbuf count:len];
+    READ_TYPE(NSUInteger, [[[_dict copy] autorelease] countByEnumeratingWithState:state objects:stackbuf count:len]);
 }
 
 - (void)dealloc;
 {
     [_dict release];
+    dispatch_release(_queue);
     [super dealloc];
 }
 

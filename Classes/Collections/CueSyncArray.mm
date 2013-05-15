@@ -19,7 +19,7 @@
 
 @implementation CueSyncArray {
     NSMutableArray *_array;
-    std::mutex _lock;
+    dispatch_queue_t _queue;
 }
 
 
@@ -43,6 +43,7 @@
     self = [super init];
     if (self) {
         _array = [array mutableCopy];
+        _queue = dispatch_queue_create("com.cueup.CueSyncArray", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
@@ -52,38 +53,32 @@
 
 - (BOOL)containsObject:(id)anObject;
 {
-    READ
-    return [_array containsObject:anObject];
+    READ_TYPE(BOOL, [_array containsObject:anObject]);
 }
 
 - (NSUInteger)indexOfObject:(id)anObject;
 {
-    READ
-    return [_array indexOfObject:anObject];
+    READ_TYPE(NSUInteger, [_array indexOfObject:anObject]);
 }
 
 - (NSUInteger)count;
 {
-    READ
-    return [_array count];
+    READ_TYPE(NSUInteger, _array.count);
 }
 
 - (id)objectAtIndex:(NSUInteger)index;
 {
-    READ
-    return [[[_array objectAtIndex:index] retain] autorelease];
+    READ_ID([[[_array objectAtIndex:index] retain] autorelease]);
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 {
-    READ
-    return [[[_array objectAtIndexedSubscript:idx] retain] autorelease];
+    READ_ID([[[_array objectAtIndexedSubscript:idx] retain] autorelease]);
 }
 
 - (NSString *)description;
 {
-    READ
-    return [_array description];
+    READ_ID(_array.description);
 }
 
 
@@ -91,32 +86,27 @@
 
 - (void)addObject:(id)object;
 {
-    WRITE
-    [_array addObject:object];
+    WRITE([_array addObject:object]);
 }
 
 - (void)addObjectsFromArray:(NSArray *)array;
 {
-    WRITE
-    [_array addObjectsFromArray:array];
+    WRITE([_array addObjectsFromArray:array]);
 }
 
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
 {
-    WRITE
-    [_array insertObject:anObject atIndex:index];
+    WRITE([_array insertObject:anObject atIndex:index]);
 }
 
 - (void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index;
 {
-    WRITE
-    [_array setObject:anObject atIndexedSubscript:index];
+    WRITE([_array setObject:anObject atIndexedSubscript:index]);
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
 {
-    WRITE
-    [_array replaceObjectAtIndex:index withObject:anObject];
+    WRITE([_array replaceObjectAtIndex:index withObject:anObject]);
 }
 
 
@@ -124,26 +114,22 @@
 
 - (void)removeObject:(id)object;
 {
-    WRITE
-    [_array removeObject:object];
+    WRITE([_array removeObject:object]);
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index;
 {
-    WRITE
-    [_array removeObjectAtIndex:index];
+    WRITE([_array removeObjectAtIndex:index]);
 }
 
 - (void)removeLastObject;
 {
-    WRITE
-    [_array removeLastObject];
+    WRITE([_array removeLastObject]);
 }
 
 - (void)removeAllObjects;
 {
-    WRITE
-    [_array removeAllObjects];    
+    WRITE([_array removeAllObjects]);
 }
 
 
@@ -151,26 +137,22 @@
 
 - (CueSyncArray *)filteredArrayUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
-    READ
-    return [[_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent];
+    READ_ID([[_array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent]);
 }
 
 - (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
-    WRITE
-    [_array filterUsingPredicate:[NSPredicate predicateWithBlock:block]];
+    WRITE([_array filterUsingPredicate:[NSPredicate predicateWithBlock:block]]);
 }
 
 - (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
 {
-    READ
-    return [[_array sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent];
+    READ_ID([[_array sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent]);
 }
 
 - (void)sortUsingDescriptors:(NSArray *)sortDescriptors;
 {
-    WRITE
-    [_array sortUsingDescriptors:sortDescriptors];
+    WRITE([_array sortUsingDescriptors:sortDescriptors]);
 }
 
 
@@ -192,8 +174,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 {
-    READ
-    [aCoder encodeObject:_array forKey:@"array"];
+    READ([aCoder encodeObject:_array forKey:@"array"]);
 }
 
 
@@ -206,22 +187,28 @@
 
 - (id)mutableCopyWithZone:(NSZone *)zone;
 {
-    id retval = [self.class allocWithZone:zone];
-    READ
-    return [retval initWithArray:_array];
+    READ_ID([[self.class allocWithZone:zone] initWithArray:_array]);
+}
+
+- (void)withArray:(void (^)(NSArray *array))block;
+{
+    READ(if (block) { block(_array); });
 }
 
 - (BOOL)isEqual:(id)object;
 {
     if (object == self) {
         return YES;
-    }    
-    READ
+    }
     if ([object isKindOfClass:[CueSyncArray class]]) {
+        __block BOOL retval = NO;
         CueSyncArray *other = object;
-        std::mutex &lock = other->_lock;
-        CueStackLockStd(lock);
-        return [_array isEqual:other->_array];
+        [other withArray:^(NSArray *array) {
+            [self withArray:^(NSArray *array_) {
+                retval = [array isEqual:array_];
+            }];
+        }];
+        return retval;
     }    
     return NO;
 }
@@ -231,8 +218,7 @@
 // with isEqual, so we offset by one.
 - (NSUInteger)hash;
 {
-    READ
-    return _array.hash + 1;
+    READ_TYPE(NSUInteger, _array.hash + 1);
 }
 
 #pragma mark - NSFastEnumeration
@@ -241,14 +227,13 @@
                                   objects:(id *)stackbuf
                                     count:(NSUInteger)len;
 {
-    READ
-    NSArray *safeCopy = [[_array copy] autorelease];
-    return [safeCopy countByEnumeratingWithState:state objects:stackbuf count:len];
+    READ_TYPE(NSUInteger, [[[_array copy] autorelease] countByEnumeratingWithState:state objects:stackbuf count:len]);
 }
 
 - (void)dealloc;
 {
     [_array release];
+    dispatch_release(_queue);
     [super dealloc];
 }
 

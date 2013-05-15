@@ -11,7 +11,7 @@
 
 @implementation CueSyncSet {
     NSMutableSet *_set;
-    std::mutex _lock;
+    dispatch_queue_t _queue;
 }
 
 
@@ -35,6 +35,7 @@
     self = [super init];
     if (self) {
         _set = [set mutableCopy];
+        _queue = dispatch_queue_create("com.cueup.CueSyncSet", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
@@ -49,32 +50,27 @@
 
 - (BOOL)containsObject:(id)anObject;
 {
-    READ
-    return [_set containsObject:anObject];
+    READ_TYPE(BOOL, [_set containsObject:anObject]);
 }
 
 - (NSUInteger)count;
 {
-    READ
-    return [_set count];
+    READ_TYPE(NSUInteger, [_set count]);
 }
 
 - (id)anyObject;
 {
-    READ
-    return [_set anyObject];
+    READ_ID(_set.anyObject);
 }
 
 - (NSArray *)allObjects;
 {
-    READ
-    return [_set allObjects];
+    READ_ID(_set.allObjects);
 }
 
 - (NSString *)description;
 {
-    READ
-    return [_set description];
+    READ_ID(_set.description);
 }
 
 
@@ -82,14 +78,12 @@
 
 - (void)addObject:(id)object;
 {
-    WRITE
-    [_set addObject:object];
+    WRITE([_set addObject:object]);
 }
 
 - (void)addObjectsFromArray:(NSArray *)array;
 {
-    WRITE
-    [_set addObjectsFromArray:array];
+    WRITE([_set addObjectsFromArray:array]);
 }
 
 
@@ -97,14 +91,12 @@
 
 - (void)removeObject:(id)object;
 {
-    WRITE
-    [_set removeObject:object];
+    WRITE([_set removeObject:object]);
 }
 
 - (void)removeAllObjects;
 {
-    WRITE
-    [_set removeAllObjects];
+    WRITE([_set removeAllObjects]);
 }
 
 
@@ -112,20 +104,17 @@
 
 - (CueSyncSet *)filteredSetUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
-    READ
-    return [[_set filteredSetUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent];
+    READ_ID([[_set filteredSetUsingPredicate:[NSPredicate predicateWithBlock:block]] cueConcurrent]);
 }
 
 - (void)filterUsingBlock:(BOOL (^)(id evaluatedObject, NSDictionary *bindings))block;
 {
-    WRITE
-    [_set filterUsingPredicate:[NSPredicate predicateWithBlock:block]];
+    WRITE([_set filterUsingPredicate:[NSPredicate predicateWithBlock:block]]);
 }
 
 - (CueSyncArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;
 {
-    READ
-    return [[_set sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent];
+    READ_ID([[_set sortedArrayUsingDescriptors:sortDescriptors] cueConcurrent]);
 }
 
 
@@ -147,8 +136,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 {
-    READ
-    [aCoder encodeObject:_set forKey:@"set"];
+    READ([aCoder encodeObject:_set forKey:@"set"]);
 }
 
 
@@ -161,9 +149,12 @@
 
 - (id)mutableCopyWithZone:(NSZone *)zone;
 {
-    id retval = [self.class allocWithZone:zone];
-    READ
-    return [retval initWithSet:_set];
+    READ_ID([[self.class allocWithZone:zone] initWithSet:_set]);
+}
+
+- (void)withSet:(void (^)(NSSet *set))block;
+{
+    READ(if (block) { block(_set); });
 }
 
 - (BOOL)isEqual:(id)object;
@@ -171,12 +162,15 @@
     if (object == self) {
         return YES;
     }
-    READ
     if ([object isKindOfClass:[CueSyncSet class]]) {
         CueSyncSet *other = object;
-        std::mutex &lock = other->_lock;
-        CueStackLockStd(lock);
-        return [_set isEqual:other->_set];
+        __block BOOL retval = NO;
+        [other withSet:^(NSSet *set) {
+            [self withSet:^(NSSet *set_) {
+                retval = [set isEqual:set_];
+            }];
+        }];
+        return retval;
     }
     return NO;
 }
@@ -186,8 +180,7 @@
 // with isEqual, so we offset by one.
 - (NSUInteger)hash;
 {
-    READ
-    return _set.hash + 1;
+    READ_TYPE(NSUInteger, _set.hash + 1);
 }
 
 #pragma mark - NSFastEnumeration
@@ -196,14 +189,13 @@
                                   objects:(id *)stackbuf
                                     count:(NSUInteger)len;
 {
-    READ
-    NSSet *safeCopy = [[_set copy] autorelease];
-    return [safeCopy countByEnumeratingWithState:state objects:stackbuf count:len];
+    READ_TYPE(NSUInteger, [[[_set copy] autorelease] countByEnumeratingWithState:state objects:stackbuf count:len]);
 }
 
 - (void)dealloc;
 {
     [_set release];
+    dispatch_release(_queue);
     [super dealloc];
 }
 @end

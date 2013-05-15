@@ -22,9 +22,24 @@
 #ifndef TheKitchenSync_CueSyncCollectionsPriv_h
 #define TheKitchenSync_CueSyncCollectionsPriv_h
 
-// Used to use CueReadWriteLock, until we actually profiled it.
-// For heavy use it's orders of magnitude faster to use a std::mutex.
-#define READ CueStackLockStd(_lock);
-#define WRITE READ
+#define READ_TYPE(__type__, ...) \
+__block __type__ retval; \
+dispatch_sync(_queue, ^{ \
+retval = __VA_ARGS__; \
+}); \
+return retval
+
+#define READ_ID(...) \
+READ_TYPE(id, __VA_ARGS__)
+
+#define READ(...) \
+dispatch_sync(_queue, ^{ \
+__VA_ARGS__; \
+});
+
+#define WRITE(...) \
+dispatch_barrier_sync(_queue, ^{ \
+__VA_ARGS__; \
+});
 
 #endif
