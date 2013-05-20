@@ -17,8 +17,6 @@
 #import "CueStackLock.h"
 #import "CueSyncCollections.h"
 
-#include <mutex>
-
 #ifndef TheKitchenSync_CueSyncCollectionsPriv_h
 #define TheKitchenSync_CueSyncCollectionsPriv_h
 

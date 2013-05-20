@@ -59,6 +59,8 @@ typedef NSObject<ICueArray> CueArray;
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
 
+- (void)setArray:(NSArray *)otherArray;
+
 
 #pragma mark - Remove
 

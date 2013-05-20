@@ -34,8 +34,6 @@ STAssertEquals((NSUInteger) expected, [collection count], message)
 #define TEST_CLASS(name) @interface name : CueTest \
 @end
 
-#define CC_CONNECTION_TYPES_PRIVILEGED
-
 /**
  * Cue-specific test cases.
  */

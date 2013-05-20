@@ -54,6 +54,7 @@ typedef NSObject<ICueDictionary> CueDictionary;
 
 - (void)addEntriesFromDictionary:(NSDictionary *)otherDictionary;
 
+- (void)setDictionary:(NSDictionary *)otherDictionary;
 
 #pragma mark - Remove
 

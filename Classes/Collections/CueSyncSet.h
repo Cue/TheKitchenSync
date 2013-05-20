@@ -53,6 +53,7 @@ typedef NSObject<ICueSet> CueSet;
 
 - (void)addObjectsFromArray:(NSArray *)array;
 
+- (void)setSet:(NSSet *)otherSet;
 
 #pragma mark - Remove
 

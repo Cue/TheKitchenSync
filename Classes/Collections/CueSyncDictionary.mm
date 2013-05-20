@@ -99,6 +99,11 @@
     WRITE([_dict addEntriesFromDictionary:otherDictionary]);
 }
 
+- (void)setDictionary:(NSDictionary *)otherDictionary;
+{
+    WRITE([_dict setDictionary:otherDictionary]);
+}
+
 
 #pragma mark - Remove
 

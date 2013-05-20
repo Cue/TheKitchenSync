@@ -91,6 +91,10 @@
     WRITE([_set addObjectsFromArray:array]);
 }
 
+- (void)setSet:(NSSet *)otherSet;
+{
+    WRITE([_set setSet:otherSet]);
+}
 
 #pragma mark - Remove
 

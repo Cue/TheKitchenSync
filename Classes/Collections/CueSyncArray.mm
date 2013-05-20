@@ -109,6 +109,11 @@
     WRITE([_array replaceObjectAtIndex:index withObject:anObject]);
 }
 
+- (void)setArray:(NSArray *)otherArray;
+{
+    WRITE([_array setArray:otherArray]);
+}
+
 
 #pragma mark - Remove
 
