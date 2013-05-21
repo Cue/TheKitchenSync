@@ -39,7 +39,7 @@
 {
     self = [super init];
     if (self) {
-        _set = [set mutableCopy];
+        _set = set ? [set mutableCopy] : [[NSMutableSet alloc] init];
         _queue = dispatch_queue_create("com.cueup.CueSyncSet", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;

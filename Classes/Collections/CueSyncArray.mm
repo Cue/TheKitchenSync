@@ -42,7 +42,7 @@
 {
     self = [super init];
     if (self) {
-        _array = [array mutableCopy];
+        _array = array ? [array mutableCopy] : [@[] mutableCopy];
         _queue = dispatch_queue_create("com.cueup.CueSyncArray", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;

@@ -43,7 +43,7 @@
 {
     self = [super init];
     if (self) {
-        _dict = [dictionary mutableCopy];
+        _dict = dictionary ? [dictionary mutableCopy] : [@{} mutableCopy];
         _queue = dispatch_queue_create("com.cueup.CueSyncDictionary", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
