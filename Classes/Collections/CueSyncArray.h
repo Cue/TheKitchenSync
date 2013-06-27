@@ -23,6 +23,7 @@
 @protocol ICueArray <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 @required
 
++ (id)array;
 
 #pragma mark - Query
 
@@ -63,6 +64,8 @@ typedef NSObject<ICueArray> CueArray;
 
 
 #pragma mark - Remove
+
+- (void)removeFirstInstanceOfObject:(id)object;
 
 - (void)removeObject:(id)object;
 

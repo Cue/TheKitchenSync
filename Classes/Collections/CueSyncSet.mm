@@ -19,12 +19,17 @@
 
 + (instancetype)from:(NSSet *)set;
 {
-    return [[[CueSyncSet alloc] initWithSet:set] autorelease];
+    return [[[self alloc] initWithSet:set] autorelease];
 }
 
 + (instancetype)fromArray:(NSArray *)array;
 {
-    return [[[CueSyncSet alloc] initWithArray:array] autorelease];
+    return [[[self alloc] initWithArray:array] autorelease];
+}
+
++ (id)set;
+{
+    return [[[self alloc] init] autorelease];
 }
 
 

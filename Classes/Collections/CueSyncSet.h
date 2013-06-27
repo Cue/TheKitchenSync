@@ -25,6 +25,7 @@
 @protocol ICueSet <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 @required
 
++ (id)set;
 
 #pragma mark - Query
 

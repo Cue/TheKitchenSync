@@ -22,6 +22,7 @@
 @protocol ICueDictionary <NSFastEnumeration, NSCoding, NSCopying, NSMutableCopying>
 @required
 
++ (id)dictionary;
 
 #pragma mark - Query
 

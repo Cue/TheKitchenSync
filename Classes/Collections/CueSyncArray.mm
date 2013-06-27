@@ -30,6 +30,11 @@
     return [[[self alloc] initWithArray:array] autorelease];
 }
 
++ (id)array;
+{
+    return [[[self alloc] init] autorelease];
+}
+
 
 #pragma mark - Init
 
@@ -125,6 +130,14 @@
 - (void)removeObjectAtIndex:(NSUInteger)index;
 {
     WRITE([_array removeObjectAtIndex:index]);
+}
+
+- (void)removeFirstInstanceOfObject:(id)object;
+{
+    WRITE(NSInteger index = [_array indexOfObject:object];
+          if (index != NSNotFound) {
+              [_array removeObjectAtIndex:index];
+          });
 }
 
 - (void)removeLastObject;

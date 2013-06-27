@@ -31,6 +31,11 @@
     return [[[self alloc] initWithDictionary:dictionary] autorelease];
 }
 
++ (id)dictionary;
+{
+    return [[[self alloc] init] autorelease];
+}
+
 
 #pragma mark - Init
 

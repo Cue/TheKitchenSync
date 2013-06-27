@@ -67,6 +67,18 @@
     return loader;
 }
 
+- (id)checkObjectForKey:(id)key;
+{
+    [key retain];
+    CueValueLoader *loader;
+    {
+        CueStackLock(_lock);
+        loader = [[[_cache objectForKey:key] retain] autorelease];
+    }
+    [key release];
+    return [loader get];
+}
+
 - (id)objectForKey:(id)key;
 {
     return [[self loaderForKey:key] get];

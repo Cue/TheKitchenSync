@@ -25,6 +25,8 @@ typedef id (^CueLoadingBlock)(id key);
 
 - (id)initWithLoader:(CueLoadingBlock)block isMemorySensitive:(BOOL)memorySensitive;
 
+- (id)checkObjectForKey:(id)key; // Returns nil if not found.
+
 - (id)objectForKey:(id)key;
 
 - (id)objectForKeyedSubscript:(id)key;

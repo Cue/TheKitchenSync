@@ -30,6 +30,8 @@
 
 - (void)cuePerformBlockInBackground:(void(^)())block;
 
+- (void)cuePerformBlockOnDefaultQueue:(void(^)())block;
+
 - (void)cuePerformBlock:(void(^)())block afterDelay:(NSTimeInterval)delay;
 
 - (void)cuePerformBlock:(void(^)())block onThread:(NSThread *)thread waitUntilDone:(BOOL)wait;
