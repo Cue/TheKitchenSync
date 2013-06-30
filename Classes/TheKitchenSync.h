@@ -12,6 +12,7 @@
 
 #import "CueSyncCollections.h"
 #import "CueLoadingCache.h"
+#import "CueLRUCache.h"
 
 #import "CueThreadLocal.h"
 #import "CueThreadPerformAdditions.h"

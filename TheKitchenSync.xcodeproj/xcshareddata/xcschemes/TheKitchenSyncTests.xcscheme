@@ -37,6 +37,29 @@
                BlueprintName = "TheKitchenSyncTests"
                ReferencedContainer = "container:TheKitchenSync.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CueReadWriteLockTest">
+               </Test>
+               <Test
+                  Identifier = "CueSyncCollectionsTest">
+               </Test>
+               <Test
+                  Identifier = "CueTaskQueueTests">
+               </Test>
+               <Test
+                  Identifier = "CueTest">
+               </Test>
+               <Test
+                  Identifier = "CueThreadLocalTest">
+               </Test>
+               <Test
+                  Identifier = "CueLoadingCacheTest">
+               </Test>
+               <Test
+                  Identifier = "CueFairLockTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
