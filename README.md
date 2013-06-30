@@ -49,9 +49,9 @@ for (int i = 0; i < 10; ++i) {
 [queue finish]; 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## CueLoadingCache
+## CueLoadingCache and CueLRUCache
 Similar to [Guava MapMaker](http://docs.guava-libraries.googlecode.com/git-history/v10.0.1/javadoc/com/google/common/collect/MapMaker.html), 
-the CueLoadingCache is a thread-safe container that allows programmatic generation of values by key. Simply pass a loader block to it, and it will apply that block to every key it is passed:
+CueLoadingCache and CueLRUCache are thread-safe containers that allow programmatic generation of values by key. Simply pass a loader block to either object, and it will apply that block to every key it is passed:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.objc
 // This cache object takes a filename as its key, and returns its NSData from disk.
@@ -92,7 +92,8 @@ Generally this means changing your file extension from .m to .mm
 
 We know there is a lot more that can be done to build great libraries, and concurrency is hard!
 
-We're always happy to receive pull requests!
+We're always happy to receive pull requests! Here are some potential improvements:
+- In `-[CueLRUCache loaderForKey]`, it's possible to improve the locking performance on reads by getting more granular with the OrderedDictionary implementation, and perhaps writing a LinkedList implementation instead of using NSMutableArray.
 
 ## License
 
