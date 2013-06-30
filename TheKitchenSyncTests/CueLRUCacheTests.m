@@ -16,7 +16,7 @@
 
 #import "CueLRUCacheTests.h"
 #import "CueLRUCache.h"
-#import "OrderedDictionary.h"
+#import "CueOrderedDictionary.h"
 
 @implementation CueLRUCacheTests
 
@@ -39,24 +39,24 @@
     STAssertEqualObjects(cacheDict, dict, @"Did not remove correctly");
 }
 
-- (void)testOrderedDictionaryCopy;
+- (void)testCueOrderedDictionaryCopy;
 {
-    OrderedDictionary *dict = [[[OrderedDictionary alloc] init] autorelease];
+    CueOrderedDictionary *dict = [[[CueOrderedDictionary alloc] init] autorelease];
     [dict setObject:@"1" forKey:@1];
     [dict setObject:@"2" forKey:@2];
     [dict setObject:@"3" forKey:@3];
-    OrderedDictionary *unordered = [[[OrderedDictionary alloc] init] autorelease];
+    CueOrderedDictionary *unordered = [[[CueOrderedDictionary alloc] init] autorelease];
     [unordered setObject:@"1" forKey:@1];
     [unordered setObject:@"3" forKey:@3];
     [unordered setObject:@"2" forKey:@2];
     STAssertFalse([dict isEqual:unordered], @"equivalence doesn't respect ordering");    
-    OrderedDictionary *cp = [[dict copy] autorelease];
+    CueOrderedDictionary *cp = [[dict copy] autorelease];
     STAssertEqualObjects(dict, cp, @"Copy didn't create equivalent object");
 }
 
-- (void)testOrderedDictionaryRemove;
+- (void)testCueOrderedDictionaryRemove;
 {
-    OrderedDictionary *dict = [[[OrderedDictionary alloc] init] autorelease];
+    CueOrderedDictionary *dict = [[[CueOrderedDictionary alloc] init] autorelease];
     [dict setObject:@"1" forKey:@1];
     [dict setObject:@"2" forKey:@2];
     [dict setObject:@"3" forKey:@3];
@@ -77,7 +77,7 @@
     [cache setObject:@"4" forKey:@4]; // Cache: 2, 3, 4
     [cache setObject:@"5" forKey:@5]; // Cache: 3, 4, 5
     
-    OrderedDictionary *cacheDict = (OrderedDictionary *)[cache dictionaryRepresentation];
+    CueOrderedDictionary *cacheDict = (CueOrderedDictionary *)[cache dictionaryRepresentation];
     NSDictionary *expectedCacheDict = @{@3: @"3", @4: @"4", @5: @"5"};
     STAssertEqualObjects(cacheDict, expectedCacheDict, @"Unexpected objects in cache");
     
@@ -85,7 +85,7 @@
     [cache objectForKey:@3]; // Cache: 4, 5, 3
     [cache setObject:@"6" forKey:@6]; // Cache: 5, 3, 6
     
-    cacheDict = (OrderedDictionary *)[cache dictionaryRepresentation];
+    cacheDict = (CueOrderedDictionary *)[cache dictionaryRepresentation];
     expectedCacheDict = @{@5: @"5", @3: @"3", @6: @"6"};
     STAssertEqualObjects(cacheDict, expectedCacheDict, @"Unexpected objects in cache");
 }

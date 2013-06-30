@@ -21,7 +21,9 @@
 //     distribution.
 //
 
-@interface OrderedDictionary : NSMutableDictionary
+// ALTERED BY CUE TO ADD NAMESPACE PREFIX AND ADD CONVENIENCE METHODS
+
+@interface CueOrderedDictionary : NSMutableDictionary
 {
 	NSMutableDictionary *dictionary;
 	NSMutableArray *array;

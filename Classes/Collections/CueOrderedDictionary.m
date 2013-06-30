@@ -1,6 +1,6 @@
 //
-//  OrderedDictionary.m
-//  OrderedDictionary
+//  CueOrderedDictionary.m
+//  CueOrderedDictionary
 //
 //  Created by Matt Gallagher on 19/12/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
@@ -21,7 +21,9 @@
 //     distribution.
 //
 
-#import "OrderedDictionary.h"
+// ALTERED BY CUE TO ADD NAMESPACE PREFIX AND ADD CONVENIENCE METHODS
+
+#import "CueOrderedDictionary.h"
 
 NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 {
@@ -40,7 +42,7 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
 	return objectString;
 }
 
-@implementation OrderedDictionary
+@implementation CueOrderedDictionary
 
 - (id)init
 {
@@ -160,9 +162,9 @@ NSString *DescriptionForObject(NSObject *object, id locale, NSUInteger indent)
     return description;
 }
 
-- (BOOL)isEqual:(OrderedDictionary *)object
+- (BOOL)isEqual:(CueOrderedDictionary *)object
 {
-    if (![object isMemberOfClass:[OrderedDictionary class]]) {
+    if (![object isMemberOfClass:[CueOrderedDictionary class]]) {
         if ([object isKindOfClass:[NSDictionary class]]) {
             return [object isEqual:dictionary];
         } else {

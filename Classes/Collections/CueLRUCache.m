@@ -17,14 +17,14 @@
 #import <UIKit/UIKit.h>
 #import "CueLRUCache.h"
 #import "CueValueLoader.h"
-#import "OrderedDictionary.h"
+#import "CueOrderedDictionary.h"
 
 
 @implementation CueLRUCache {
     id (^_loader)(id);
     NSLock *_lock;
     uint32_t _size;
-    OrderedDictionary *_cache;
+    CueOrderedDictionary *_cache;
 }
 
 - (id)initWithLoader:(id (^)(id))block
@@ -33,7 +33,7 @@
 {
     if ((self = [super init])) {
         _size = size;
-        _cache = [[OrderedDictionary alloc] init];
+        _cache = [[CueOrderedDictionary alloc] init];
         _lock = [[NSLock alloc] init];
         
         if (memorySensitive) {
@@ -143,7 +143,7 @@
 
 - (NSDictionary *)dictionaryRepresentation;
 {
-    OrderedDictionary *retval = [OrderedDictionary dictionaryWithCapacity:_cache.count];
+    CueOrderedDictionary *retval = [CueOrderedDictionary dictionaryWithCapacity:_cache.count];
     for (id key in self.allKeys) {
         [retval setObject:[self objectForKey:key] forKey:key];
     }
