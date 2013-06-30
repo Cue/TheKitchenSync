@@ -94,6 +94,7 @@ We know there is a lot more that can be done to build great libraries, and concu
 
 We're always happy to receive pull requests! Here are some potential improvements:
 - In `-[CueLRUCache loaderForKey]`, it's possible to improve the locking performance on reads by getting more granular with the OrderedDictionary implementation, and perhaps writing a LinkedList implementation instead of using NSMutableArray.
+- If anybody wants to abstract the common code out between CueLoadingCache and CueLRUCache, we'd be eternally grateful!
 
 ## License
 
